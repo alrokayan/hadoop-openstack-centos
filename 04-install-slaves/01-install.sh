@@ -15,3 +15,5 @@
 # limitations under the License.
 
 yum install -y hadoop-0.20-mapreduce-tasktracker hadoop-hdfs-datanode
+
+sync

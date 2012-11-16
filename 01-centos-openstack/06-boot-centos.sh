@@ -19,8 +19,6 @@
 # generated public key for password-less SSH connections
 nova boot --image centos60 --flavor m1.xsmall --key_name centos_key hadoop-master
 nova boot --image centos60 --flavor m1.xsmall --key_name centos_key hadoop-slave1
-nova boot --image centos60 --flavor m1.xsmall --key_name centos_key hadoop-slave2
-nova boot --image centos60 --flavor m1.xsmall --key_name centos_key hadoop-slave3
 nova boot --image centos60 --flavor m1.tiny --key_name centos_key hadoop-client
 
 # show VMs

@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-yum install -y hadoop-0.20-mapreduce-jobtracker hadoop-hdfs-namenode
+# Export the variables defined in ../config/configrc
+. ../config/configrc
 
-sync
+# ToDo

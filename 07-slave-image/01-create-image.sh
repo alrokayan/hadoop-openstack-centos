@@ -14,6 +14,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-yum install -y hadoop-0.20-mapreduce-jobtracker hadoop-hdfs-namenode
-
-sync
+# Create new OpenStack image form the slave VM
+nova image-create hadoop-slave1 hadoop-slave-image
