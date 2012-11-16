@@ -14,26 +14,17 @@ Installation Steps
 -------------------
 Steps to install Hadoop on CentOS VMs on OpenStack:
 
-*	Install OpenStack
-*	Open new terminal (OpenStackTerminal) and login to your OpenStack Controller
-*	From OpenStackTerminal, execute:
-
-
+(1)	Install OpenStack
+(2)	Open new terminal (OpenStackTerminal) and login to your OpenStack Controller
+(3)	From OpenStackTerminal, execute:
 ::
 	yum install -y git
 	git clone https://github.com/alrokayan/hadoop-openstack-centos.git
 	cd hadoop-openstack-centos
-	
-	
-*	From OpenStackTerminal, edit `config\configrc` file to match your OpenStack setup
-*	From OpenStackTerminal, execute "01-centos-openstack" folder
-
-
-
--	Open three new terminals (MasterTerminal, SlaveTerminal, and ClientTerminal) for the VMs and login to your controller form all the three terminals.
--	From MasterTerminal login to your master node
-
-
+(4)	From OpenStackTerminal, edit ``config\configrc`` file to match your OpenStack setup
+(5)	From OpenStackTerminal, execute "01-centos-openstack" folder
+(6)	Open three new terminals (MasterTerminal, SlaveTerminal, and ClientTerminal) for the VMs and login to your controller form all the three terminals.
+(7)	From MasterTerminal login to your master node
 ```
 	cd hadoop-openstack-centos
 	. 01-centos-openstack/07-show-IPs.sh
@@ -123,7 +114,8 @@ To use Eclipse plugin (which acts as client) and test your setup, follow those s
 
 Add More Slave Nodes
 --------------------
-### From OpenStack Controller
+From OpenStack Controller
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To add more slave nodes you need to execute "11-add-slave-openstack\01-add-slave.sh" and passing three arguments: instance_type, machine_name, and compute_host (optional).
 
@@ -141,7 +133,8 @@ You can add new instance type by executing this command:
 Where 1024 is the memory size, 1 is the number of cores (VCPU), and 10 is the hard disk space.
 
 
-#### Verification
+Verification
+^^^^^^^^^^^^^
 
 You can verify if the node has been added by first check if the VM is ACTIVE by executing this command from OpenStack controller:
 ::
