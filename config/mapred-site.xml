@@ -1,0 +1,10 @@
+<configuration>
+    <property>
+        <name>mapred.job.tracker</name>
+        <value>hdfs://hadoop-master:8021</value>
+    </property>
+    <property>
+        <name>mapred.local.dir</name>
+        <value>/hdfs/mapred</value>
+    </property>
+</configuration>

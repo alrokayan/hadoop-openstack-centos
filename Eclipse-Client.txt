@@ -1,0 +1,8 @@
+1) Download Eclips
+2) Download Hadoop Plugin: http://code.google.com/edu/parallel/tools/hadoopvm/index.html
+3) Follow the steps in the page wit the following config:
+Hostname: 10.0.0.4
+Installtion directory: /usr/lib/hadoop
+Username: root
+Password: cluster100
+3) Download hadoop Jars: http://hadoop.apache.org/releases.html#Download
