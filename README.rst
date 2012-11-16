@@ -17,32 +17,39 @@ Steps to install Hadoop on CentOS VMs on OpenStack:
 (1)	Install OpenStack
 (2)	Open new terminal (OpenStackTerminal) and login to your OpenStack Controller
 (3)	From OpenStackTerminal, execute:
+
 ::
 	yum install -y git
 	git clone https://github.com/alrokayan/hadoop-openstack-centos.git
 	cd hadoop-openstack-centos
+
 (4)	From OpenStackTerminal, edit ``config\configrc`` file to match your OpenStack setup
 (5)	From OpenStackTerminal, execute "01-centos-openstack" folder
 (6)	Open three new terminals (MasterTerminal, SlaveTerminal, and ClientTerminal) for the VMs and login to your controller form all the three terminals.
 (7)	From MasterTerminal login to your master node
-```
-	cd hadoop-openstack-centos
-	. 01-centos-openstack/07-show-IPs.sh
-	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE MASTER FROM THE PERVIOUS COMMAND>
-```
 
-
--	From SlaveTerminal login to your slave node
 ::
 	cd hadoop-openstack-centos
 	. 01-centos-openstack/07-show-IPs.sh
+	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE MASTER FROM THE PERVIOUS COMMAND>
+
+(8)	From SlaveTerminal login to your slave node
+
+::
+	cd hadoop-openstack-centos
+	. 01-centos-openstack/07-show-IPs.sh
+
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR SLAVE FROM THE PERVIOUS COMMAND>
--	From ClientTerminal login to your client node
+
+(9)	From ClientTerminal login to your client node
+
 ::
 	cd hadoop-openstack-centos
 	. 01-centos-openstack/07-show-IPs.sh
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR CLIENT FROM THE PERVIOUS COMMAND>
--	From the three VM terminals (MasterTerminal, SlaveTerminal, and ClientTerminal), execute: 
+
+(10)	From the three VM terminals (MasterTerminal, SlaveTerminal, and ClientTerminal), execute: 
+
 ::
 	yum install -y git
 	git clone https://github.com/alrokayan/hadoop-openstack-centos.git
