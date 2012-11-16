@@ -24,17 +24,22 @@ To use Eclipse plugin (which acts as client) and test your setup, follow those s
 
 1) Download Eclipse Classic: http://www.eclipse.org/downloads/
 2) Download Hadoop Eclipse Plugin from the last section in this page: http://code.google.com/edu/parallel/tools/hadoopvm/index.htm and follow the steps there with the following settings:
-Hostname: <MASTER VM HOST IP ADDRESS>
-Installtion directory: /usr/lib/hadoop
-Username: root
-Password: <MASTER VM PASSWORD>
+::
+	Hostname: <MASTER VM HOST IP ADDRESS>
+	Installtion directory: /usr/lib/hadoop
+	Username: root
+	Password: <MASTER VM PASSWORD>
 3) Download hadoop Jars: http://hadoop.apache.org/releases.html#Download and uncompress it, then place it in your home directory or in C:\ or anywhere you like.
 4) Open Eclipse then choose: File->New->Project->MapReduce Project
 5) Put any project name, then click "Configure Hadoop install directory…", then cleck "Browse..." and select you uncompressed hadoop folder, ex: /Users/alrokayan/hadoop-0.22.0. Apply->OK->Finish.
 6) Drag the three .java files in the "Eclipse-Example" folder (WordCountDriver.java, WordCountMap.java, and WordCountReduce.java) into the "src" folder (not the project it self) in Eclipse. Select copy, then press OK.
 7) Login to your client, from OpenStack controller:
-7.1) Execute: . 01-centos-openstack/07-show-IPs.sh
-7.2) Execute: . 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
+7.1) Execute:
+::
+	. 01-centos-openstack/07-show-IPs.sh
+7.2) Execute:
+::
+	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 7.3) After you login to the client VM:
 7.3.1) touch text
 7.3.2)
@@ -48,13 +53,16 @@ Password: <MASTER VM PASSWORD>
 	no
 	test
 	" > text
-7.3.3) hadoop fs –copyToLocal text /user/root/text
+7.3.3) Execute:
+::
+	hadoop fs –copyToLocal text /user/root/text
 8) Keep Hadoop client terminal open, and from Eclipse: right-click on WorkCountDriver.java -> Run As -> Run On Hadoop -> Select your server or defind a new one
 6) From Hadoop client, execute: hadoop fs -cat /user/root/output/part-00000, you should see:
-hadoop	1
-no	2
-test	4
-yes	1
+::
+	hadoop	1
+	no	2
+	test	4
+	yes	1
 
 
 Troubleshooting
@@ -63,5 +71,7 @@ Troubleshooting
 
 *Solution:* Two Solutions (choose one):
 
-1) Login to your client then delete the output folder by executing the following command: hadoop fs -rmr /user/root/output
+1) Login to your client then delete the output folder by executing the following command:
+::
+	hadoop fs -rmr /user/root/output
 2) Rename the output folder form WorkCountDriver.java by replace "/user/root/output" with "/user/root/output1".
