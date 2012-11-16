@@ -23,15 +23,15 @@ Eclipse Plugin Steps
 To use Eclipse plugin (which acts as client) and test your setup, follow those steps:
 
 
-1. Download Eclipse Classic: http://www.eclipse.org/downloads/
+1) Download Eclipse Classic: http://www.eclipse.org/downloads/
 
-2. Download Hadoop Eclipse Plugin from the last section in this page: http://code.google.com/edu/parallel/tools/hadoopvm/index.htm and follow the steps there with the following settings:
+2) Download Hadoop Eclipse Plugin from the last section in this page: http://code.google.com/edu/parallel/tools/hadoopvm/index.htm and follow the steps there with the following settings:
 ::
 	Hostname: <MASTER VM HOST IP ADDRESS>
 	Installtion directory: /usr/lib/hadoop
 	Username: root
 	Password: <MASTER VM PASSWORD>
-3. Download hadoop Jars: http://hadoop.apache.org/releases.html#Download and uncompress it, then place it in your home directory or in C:\ or anywhere you like.
+3) Download hadoop Jars: http://hadoop.apache.org/releases.html#Download and uncompress it, then place it in your home directory or in C:\ or anywhere you like.
 
 4) Open Eclipse then choose: File->New->Project->MapReduce Project
 
