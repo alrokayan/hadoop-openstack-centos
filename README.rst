@@ -145,7 +145,7 @@ Examples:
 
 	. 11-add-slave-openstack\01-add-slave.sh m1.small hadoop-slave3
 
-You don not have to specify the ``compute_host``. If you passed only the first two arguments OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so is a good idea to distribute disk I/O load between the hosts.
+You don not have to specify the ``compute_host``. If you passed only the first two arguments OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so it is a good idea to distribute disk I/O load between the hosts.
 
 You can get a list of *compute nodes* by executing this command:
 ::
@@ -169,7 +169,7 @@ If the VM is ACTIVE, login to the slave VM by executing this command:
 ::
 	. 01-centos-openstack/07-show-IPs.sh
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE SLAVE>
-From the slave VM execut this command to see how many Data Nodes are running:
+From the slave VM execut this command to see if the new salve (Data Node) is running:
 ::
 	sudo -u hdfs hadoop dfsadmin -report
 
@@ -178,11 +178,11 @@ Troubleshooting
 ----------------
 *Error:* org.apache.hadoop.mapred.FileAlreadyExistsException
 
-*Solutions:* (choose one):
+*Solutions:* (choose one of the two solutions):
 
--	Login to your client then delete the output folder by executing the following command:
+-	Login to your client then delete the ``output`` (or what ever the name was) folder by executing the following command:
 
 ::
 
 	hadoop fs -rmr /user/root/output
--	Rename the output folder form WorkCountDriver.java by replace ``/user/root/output`` with ``/user/root/output1``.
+-	Rename the output folder. For example: form WorkCountDriver.java by replace ``/user/root/output`` with ``/user/root/output1``.
