@@ -3,6 +3,8 @@ A Step-by-Step Guide to Installing Hadoop on OpenStack CentOS VMs and use Eclips
 
 Installation Steps
 -------------------
+Steps to install Hadoop on CentOS VMs on OpenStack:
+
 1) Install OpenStack
 2) Edit "config\configrc" file to match your OpenStack setup
 3) Execute "01-centos-openstack" folder
@@ -19,6 +21,7 @@ Installation Steps
 Eclipse Plugin Steps
 ---------------------
 To use Eclipse plugin (which acts as client) and test your setup, follow those steps:
+
 1) Download Eclipse Classic: http://www.eclipse.org/downloads/
 2) Download Hadoop Eclipse Plugin from the last section in this page: http://code.google.com/edu/parallel/tools/hadoopvm/index.htm and follow the steps there with the following settings:
 Hostname: <MASTER VM HOST IP ADDRESS>
@@ -54,7 +57,9 @@ yes	1
 
 Troubleshooting
 ----------------
-Error: org.apache.hadoop.mapred.FileAlreadyExistsException
-Solution: Two Solutions (choose one):
+*Error:* org.apache.hadoop.mapred.FileAlreadyExistsException
+
+*Solution:* Two Solutions (choose one):
+
 1) Login to your client then delete the output folder by executing the following command: hadoop fs -rmr /user/root/output
 2) Rename the output folder form WorkCountDriver.java by replace "/user/root/output" with "/user/root/output1".
