@@ -1,4 +1,4 @@
-A Step-by-Step Guide to Installing Hadoop on OpenStack CentOS VMs with Eclipse Hadoop plugin
+A Step-by-Step Guide to Install Hadoop on OpenStack CentOS VMs and Run Jobs via Eclipse Hadoop Plugin
 =====================================================================================================================
 
 Project Information
@@ -8,32 +8,31 @@ Project Information
 -	MapReduce version: MRv1
 -	Binaries source for CentOS: Cloudera CDH4
 -	Java version: Sun Java 1.6
--	OpenStack Installation: https://github.com/alrokayan/openstack-centos-kvm-glusterfs
 
 Installation Steps
 -------------------
-Steps to install Hadoop on CentOS VMs on OpenStack:
+Steps to install Hadoop on OpenStack CentOS VMs:
 
-(1)	Install OpenStack
-(2)	Open new terminal (OpenStackTerminal) and login to your OpenStack Controller
-(3)	From OpenStackTerminal, execute:
+(1)	Install OpenStack: https://github.com/alrokayan/openstack-centos-kvm-glusterfs.
+(2)	Open new terminal (*OpenStackTerminal*) and login to your OpenStack Controller.
+(3)	From *OpenStackTerminal*, execute:
 
 ::
 
 	yum install -y git
 	git clone https://github.com/alrokayan/hadoop-openstack-centos.git
 	cd hadoop-openstack-centos
-(4)	From OpenStackTerminal, edit ``config\configrc`` file to match your OpenStack setup
-(5)	From OpenStackTerminal, execute ``01-centos-openstack`` folder
-(6)	Open three new terminals (MasterTerminal, SlaveTerminal, and ClientTerminal) for the VMs and login to your controller form all the three terminals.
-(7)	From MasterTerminal login to your master node
+(4)	From *OpenStackTerminal*, edit ``config\configrc`` file to match your OpenStack setup.
+(5)	From *OpenStackTerminal*, execute ``01-centos-openstack`` folder.
+(6)	Open three new terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*) for the VMs and login to your controller form all the three terminals. Now you should have 4 terminals, we do not need more.
+(7)	From *MasterTerminal* login to your master node, execute:
 
 ::
 
 	cd hadoop-openstack-centos
 	. 01-centos-openstack/07-show-IPs.sh
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE MASTER FROM THE PERVIOUS COMMAND>
-(8)	From SlaveTerminal login to your slave node
+(8)	From *SlaveTerminal* login to your slave node, execute:
 
 ::
 
@@ -41,38 +40,38 @@ Steps to install Hadoop on CentOS VMs on OpenStack:
 	. 01-centos-openstack/07-show-IPs.sh
 
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR SLAVE FROM THE PERVIOUS COMMAND>
-(9)	From ClientTerminal login to your client node
+(9)	From *ClientTerminal* login to your client node, execute:
 
 ::
 
 	cd hadoop-openstack-centos
 	. 01-centos-openstack/07-show-IPs.sh
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR CLIENT FROM THE PERVIOUS COMMAND>
-(10)	From the three VM terminals (MasterTerminal, SlaveTerminal, and ClientTerminal), execute: 
+(10)	From the three VM terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute: 
 
 ::
 
 	yum install -y git
 	git clone https://github.com/alrokayan/hadoop-openstack-centos.git
 	cd hadoop-openstack-centos
-(11)	From the three VM terminals (MasterTerminal, SlaveTerminal, and ClientTerminal), execute ``02-cloudera-cdh-allVMs`` folder
-(12)	From MasterTerminal, execute ``03-install-master`` folder
-(13)	From SlaveTerminal, execute ``04-install-slave`` folder
-(14)	From ClientTerminal, execute ``05-install-client`` folder
-(15)	From the three terminals (MasterTerminal, SlaveTerminal, and ClientTerminal), edit ``config\core-site.xml``, ``config\hdfs-site.xml``, ``config\mapred-site.xml``, and ``config\hosts`` according to 01-centos-openstack execution result
-(16)	From the three terminals (MasterTerminal, SlaveTerminal, and ClientTerminal), execute ``06-config-allVMs`` folder
-(17)	From OpenStackTerminal, excute ``07-slave-image`` folder
-(18)	From OpenStackTerminal, keep executing ``07-slave-image/02-show-images.sh`` untile you see the status of ``hadoop-slave-image`` is ACTIVE (it will take long time, just wait, do not go to the next step before it got ACTIVE)
-(19)	From MasterTerminal, execute ``08-start-master`` folder
-(20)	From SlaveTerminal, execute ``09-start-slave`` folder
-(21)	From ClientTerminal, execute ``10-start-client`` folder
+(11)	From the three VM terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``02-cloudera-cdh-allVMs`` folder.
+(12)	From *MasterTerminal*, execute ``03-install-master`` folder.
+(13)	From *SlaveTerminal*, execute ``04-install-slave`` folder.
+(14)	From *ClientTerminal*, execute ``05-install-client`` folder.
+(15)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), edit ``config\core-site.xml``, ``config\hdfs-site.xml``, ``config\mapred-site.xml``, and ``config\hosts`` according to ``01-centos-openstack`` execution result.
+(16)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``06-config-allVMs`` folder.
+(17)	From *OpenStackTerminal*, excute ``07-slave-image`` folder.
+(18)	From *OpenStackTerminal*, keep executing ``07-slave-image/02-show-images.sh`` untile you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
+(19)	From *MasterTerminal*, execute ``08-start-master`` folder.
+(20)	From *SlaveTerminal*, execute ``09-start-slave`` folder.
+(21)	From *ClientTerminal*, execute ``10-start-client`` folder.
 
 Eclipse Plugin Steps
 ---------------------
 To use Eclipse plugin (which acts as client) and test your setup, follow those steps:
 
-(1)	Download Eclipse Classic: http://www.eclipse.org/downloads/
-(2)	Download Hadoop Eclipse Plugin from the last section in this page: http://code.google.com/edu/parallel/tools/hadoopvm/index.htm and follow the steps there with the following settings:
+(1)	Download Eclipse Classic: http://www.eclipse.org/downloads/.
+(2)	Download *Hadoop Eclipse Plugin* from the last section in this page: http://code.google.com/edu/parallel/tools/hadoopvm/index.htm and follow the steps there with the following settings:
 
 ::
 
@@ -80,18 +79,18 @@ To use Eclipse plugin (which acts as client) and test your setup, follow those s
 	Installtion directory: /usr/lib/hadoop
 	Username: root
 	Password: <MASTER VM PASSWORD>
-(3)	Download hadoop Jars: http://hadoop.apache.org/releases.html#Download and uncompress it, then place it in your home directory or in C:\ or anywhere you like.
-(4)	Open Eclipse then choose: File->New->Project->MapReduce Project
-(5)	Put any project name, then click ``Configure Hadoop install directory…``, then cleck ``Browse...`` and select you uncompressed hadoop folder, ex: /Users/alrokayan/hadoop-0.22.0. Apply->OK->Finish.
-(6)	Drag the three .java files in the ``Eclipse-Example`` folder (WordCountDriver.java, WordCountMap.java, and WordCountReduce.java) into the ``src`` folder (not the project it self) in Eclipse. Select copy, then press OK.
-(7)	Login to your client, from OpenStack controller, then execute:
+(3)	Download Hadoop Jars: http://hadoop.apache.org/releases.html#Download and uncompress it, then place it in your home or C:\ directory, or anywhere you like.
+(4)	Open Eclipse then choose: File -> New -> Project -> *MapReduce Project*.
+(5)	Put any project name, then click ``Configure Hadoop install directory…``, then cleck ``Browse...`` and select your uncompressed Hadoop Jars folder, example: /Users/alrokayan/hadoop-0.22.0, then click Apply -> OK -> Finish.
+(6)	Drag the three .java files from ``Eclipse-Example`` folder (``WordCountDriver.java``, ``WordCountMap.java``, and ``WordCountReduce.java``) into the ``src`` folder (not the project it self) in Eclipse, then choose copy, then press OK.
+(7)	From OpenStack controller, execute (Make sure that the ``config\configrc`` file has the corrent values for your OpenStack):
 
 ::
 
 	. 01-centos-openstack/07-show-IPs.sh
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 
-(8) fter you login to the client VM, execute:
+(8) After you login to the client VM, execute:
 
 ::
 
@@ -109,9 +108,14 @@ To use Eclipse plugin (which acts as client) and test your setup, follow those s
 	
 	hadoop fs –copyToLocal text /user/root/text
 
-(9)	Keep Hadoop client terminal open, and from Eclipse: right-click on WorkCountDriver.java -> Run As -> Run On Hadoop -> Select your server or defind a new one
+(9)	Keep Hadoop client terminal open, and from Eclipse: right-click on WorkCountDriver.java -> Run As -> Run On Hadoop -> Select your server or define a new one (see step 2 above for the settings)
 
-(10)	From Hadoop client, execute: hadoop fs -cat /user/root/output/part-00000, you should see:
+(10)	From Hadoop client, execute:
+::
+
+hadoop fs -cat /user/root/output/part-00000
+
+You should see:
 
 ::
 

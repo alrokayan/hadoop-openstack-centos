@@ -14,7 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Show images
-nova image-list
-
-echo "It may take long time for the image to be ACTIVE, just wait, do not go to the next step before it got ACTIVE"
+passwd
