@@ -28,6 +28,7 @@ Steps to install Hadoop on CentOS VMs on OpenStack:
 (5)	From OpenStackTerminal, execute "01-centos-openstack" folder
 (6)	Open three new terminals (MasterTerminal, SlaveTerminal, and ClientTerminal) for the VMs and login to your controller form all the three terminals.
 (7)	From MasterTerminal login to your master node
+
 ::
 
 	cd hadoop-openstack-centos
