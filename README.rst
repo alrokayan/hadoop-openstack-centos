@@ -86,18 +86,18 @@ To use Eclipse plugin (which acts as client) and test your setup, follow those s
 (6)	Drag the three .java files in the ``Eclipse-Example`` folder (WordCountDriver.java, WordCountMap.java, and WordCountReduce.java) into the ``src`` folder (not the project it self) in Eclipse. Select copy, then press OK.
 (7)	Login to your client, from OpenStack controller:
 
-(7.1)	Execute:
+7.1.	Execute:
 
 ::
 
 	. 01-centos-openstack/07-show-IPs.sh
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 
-(7.2)	After you login to the client VM:
+7.2.	After you login to the client VM:
 
-(7.2.1)	touch text
+7.2.1.	touch text
 
-(7.2.2)	
+7.2.2.	
 
 ::
 
@@ -111,15 +111,15 @@ To use Eclipse plugin (which acts as client) and test your setup, follow those s
 	test
 	" > text
 
-(7.2.3)	Execute:
+7.2.3.	Execute:
 
 ::
 
 	hadoop fs –copyToLocal text /user/root/text
 
-(8)	Keep Hadoop client terminal open, and from Eclipse: right-click on WorkCountDriver.java -> Run As -> Run On Hadoop -> Select your server or defind a new one
+8.	Keep Hadoop client terminal open, and from Eclipse: right-click on WorkCountDriver.java -> Run As -> Run On Hadoop -> Select your server or defind a new one
 
-(9)	From Hadoop client, execute: hadoop fs -cat /user/root/output/part-00000, you should see:
+9.	From Hadoop client, execute: hadoop fs -cat /user/root/output/part-00000, you should see:
 
 ::
 
