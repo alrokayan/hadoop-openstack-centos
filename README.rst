@@ -94,6 +94,7 @@ To use Eclipse plugin (which acts as client) and test your setup, follow those s
 (8) fter you login to the client VM, execute:
 
 ::
+
 	touch text
 
 	echo "test
