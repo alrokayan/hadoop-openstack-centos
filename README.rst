@@ -67,6 +67,8 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 
 Eclipse Plugin Steps
 ---------------------
+Use a VM inside OpenStack (Other than what we have provisioned), or just use your personal PC.
+
 To use Eclipse plugin (which acts as another Hadoop client) and test your setup, follow those steps:
 
 (1)	Download Eclipse Classic: http://www.eclipse.org/downloads/.
@@ -132,6 +134,16 @@ From OpenStack Controller
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To add more slave nodes you need to execute ``11-add-slave-openstack\01-add-slave.sh`` and passing three arguments: ``instance_type``, ``machine_name``, and ``compute_host`` (optional).
+
+Examples:
+
+::
+
+	. 11-add-slave-openstack\01-add-slave.sh m1.xsmall hadoop-slave2 compute1
+	
+::
+
+	. 11-add-slave-openstack\01-add-slave.sh m1.small hadoop-slave3
 
 You don not have to specify the ``compute_host``. If you passed only the first two arguments OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so is a good idea to distribute disk I/O load between the hosts.
 
