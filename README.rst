@@ -37,15 +37,17 @@ Password: <MASTER VM PASSWORD>
 7.2) Execute: . 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 7.3) After you login to the client VM:
 7.3.1) touch text
-7.3.2) echo "test
-yes
-hadoop
-test
-no
-test
-no
-test
-" > text
+7.3.2)
+::
+	echo "test
+	yes
+	hadoop
+	test
+	no
+	test
+	no
+	test
+	" > text
 7.3.3) hadoop fs –copyToLocal text /user/root/text
 8) Keep Hadoop client terminal open, and from Eclipse: right-click on WorkCountDriver.java -> Run As -> Run On Hadoop -> Select your server or defind a new one
 6) From Hadoop client, execute: hadoop fs -cat /user/root/output/part-00000, you should see:
