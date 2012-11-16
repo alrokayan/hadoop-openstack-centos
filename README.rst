@@ -131,33 +131,33 @@ Add More Slave Nodes
 From OpenStack Controller
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To add more slave nodes you need to execute ``11-add-slave-openstack\01-add-slave.sh`` and passing three arguments: instance_type, machine_name, and compute_host (optional).
+To add more slave nodes you need to execute ``11-add-slave-openstack\01-add-slave.sh`` and passing three arguments: ``instance_type``, ``machine_name``, and ``compute_host`` (optional).
 
-You don not have to specify the computer host. If you passed only the first two arguments OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so maybe you want to distribute disk I/O load between the hosts.
+You don not have to specify the ``compute_host``. If you passed only the first two arguments OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so is a good idea to distribute disk I/O load between the hosts.
 
-You can get a list of compute nodes by executing this command:
+You can get a list of *compute nodes* by executing this command:
 ::
 	nova-manage service list
-You can get a list of current instance types by executing this command:
+You can get a list of current *instance types* by executing this command:
 ::
 	nova-manage instance_type list
-You can add new instance type by executing this command:
+You can add new *instance type* by executing this command:
 ::
 	nova-manage instance_type create m1.xsmall 1024 1 10 0 0 0
-Where 1024 is the memory size, 1 is the number of cores (VCPU), and 10 is the hard disk space.
+Where ``1024`` is the memory size, ``1`` is the number of cores (VCPU), and ``10`` is the hard disk space.
 
 
 Verification
 ^^^^^^^^^^^^^
 
-You can verify if the node has been added by first check if the VM is ACTIVE by executing this command from OpenStack controller:
+You can verify if the slave node has been added by first check if the slave VM is ACTIVE by executing this command from OpenStack controller:
 ::
 	nova list
-If the VM is ACTIVE, login to the client VM by executing this command:
+If the VM is ACTIVE, login to the slave VM by executing this command:
 ::
 	. 01-centos-openstack/07-show-IPs.sh
-	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
-From the client VM execut this command to see how many Data Nodes are running:
+	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE SLAVE>
+From the slave VM execut this command to see how many Data Nodes are running:
 ::
 	sudo -u hdfs hadoop dfsadmin -report
 
@@ -166,7 +166,7 @@ Troubleshooting
 ----------------
 *Error:* org.apache.hadoop.mapred.FileAlreadyExistsException
 
-*Solution:* Two Solutions (choose one):
+*Solutions:* (choose one):
 
 -	Login to your client then delete the output folder by executing the following command:
 
