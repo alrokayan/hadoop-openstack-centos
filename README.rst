@@ -1,4 +1,4 @@
-A Step-by-Step Guide to Installing Hadoop on OpenStack CentOS VMs and use Eclipse
+A Step-by-Step Guide to Installing Hadoop on OpenStack CentOS VMs with Eclipse Hadoop plugin
 =====================================================================================================================
 
 Project Information
@@ -17,12 +17,10 @@ Steps to install Hadoop on CentOS VMs on OpenStack:
 (1)	Install OpenStack
 (2)	Open new terminal (OpenStackTerminal) and login to your OpenStack Controller
 (3)	From OpenStackTerminal, execute:
-
 ::
 	yum install -y git
 	git clone https://github.com/alrokayan/hadoop-openstack-centos.git
 	cd hadoop-openstack-centos
-
 (4)	From OpenStackTerminal, edit ``config\configrc`` file to match your OpenStack setup
 (5)	From OpenStackTerminal, execute "01-centos-openstack" folder
 (6)	Open three new terminals (MasterTerminal, SlaveTerminal, and ClientTerminal) for the VMs and login to your controller form all the three terminals.
