@@ -116,7 +116,7 @@ To use Eclipse plugin (which acts as another Hadoop client) and test your setup,
 
 hadoop fs -cat /user/root/output/part-00000
 
-You should see:
+(12)	You should see:
 
 ::
 
