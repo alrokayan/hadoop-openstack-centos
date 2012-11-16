@@ -14,16 +14,16 @@ Installation Steps
 -------------------
 Steps to install Hadoop on CentOS VMs on OpenStack:
 
--	Install OpenStack
--	Open new terminal (OpenStackTerminal) and login to your OpenStack Controller
--	From OpenStackTerminal, execute:
+*	Install OpenStack
+*	Open new terminal (OpenStackTerminal) and login to your OpenStack Controller
+*	From OpenStackTerminal, execute:
 
 ::
 	yum install -y git
 	git clone https://github.com/alrokayan/hadoop-openstack-centos.git
 	cd hadoop-openstack-centos
--	From OpenStackTerminal, edit "config\configrc" file to match your OpenStack setup
--	From OpenStackTerminal, execute "01-centos-openstack" folder
+*	From OpenStackTerminal, edit "config\configrc" file to match your OpenStack setup
+*	From OpenStackTerminal, execute "01-centos-openstack" folder
 
 
 
@@ -115,7 +115,7 @@ To use Eclipse plugin (which acts as client) and test your setup, follow those s
 
 Add More Slave Nodes
 --------------------
-*From OpenStack Controller*
+##From OpenStack Controller##
 
 To add more slave nodes you need to execute "11-add-slave-openstack\01-add-slave.sh" and passing three arguments: instance_type, machine_name, and compute_host (optional).
 
@@ -133,7 +133,7 @@ You can add new instance type by executing this command:
 Where 1024 is the memory size, 1 is the number of cores (VCPU), and 10 is the hard disk space.
 
 
-*Verification*
+###Verification##3
 
 You can verify if the node has been added by first check if the VM is ACTIVE by executing this command from OpenStack controller:
 ::
