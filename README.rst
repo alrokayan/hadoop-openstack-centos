@@ -38,7 +38,6 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 
 	cd hadoop-openstack-centos
 	. 01-centos-openstack/07-show-IPs.sh
-
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR SLAVE FROM THE PERVIOUS COMMAND>
 (9)	From *ClientTerminal* login to your client node, execute:
 
@@ -68,7 +67,7 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 
 Eclipse Plugin Steps
 ---------------------
-To use Eclipse plugin (which acts as client) and test your setup, follow those steps:
+To use Eclipse plugin (which acts as another Hadoop client) and test your setup, follow those steps:
 
 (1)	Download Eclipse Classic: http://www.eclipse.org/downloads/.
 (2)	Download *Hadoop Eclipse Plugin* from the last section in this page: http://code.google.com/edu/parallel/tools/hadoopvm/index.htm and follow the steps there with the following settings:
@@ -79,18 +78,19 @@ To use Eclipse plugin (which acts as client) and test your setup, follow those s
 	Installtion directory: /usr/lib/hadoop
 	Username: root
 	Password: <MASTER VM PASSWORD>
-(3)	Download Hadoop Jars: http://hadoop.apache.org/releases.html#Download and uncompress it, then place it in your home or C:\ directory, or anywhere you like.
+(3)	Download Hadoop Jars: http://hadoop.apache.org/releases.html#Download and uncompress it, then place it in your home or C:\\ directory, or anywhere you like.
 (4)	Open Eclipse then choose: File -> New -> Project -> *MapReduce Project*.
 (5)	Put any project name, then click ``Configure Hadoop install directory…``, then cleck ``Browse...`` and select your uncompressed Hadoop Jars folder, example: /Users/alrokayan/hadoop-0.22.0, then click Apply -> OK -> Finish.
 (6)	Drag the three .java files from ``Eclipse-Example`` folder (``WordCountDriver.java``, ``WordCountMap.java``, and ``WordCountReduce.java``) into the ``src`` folder (not the project it self) in Eclipse, then choose copy, then press OK.
-(7)	From OpenStack controller, execute (Make sure that the ``config\configrc`` file has the corrent values for your OpenStack):
+(7) Make sure that the ``config\configrc`` file has the corrent values for your OpenStack.
+(8)	From OpenStack controller, execute :
 
 ::
 
 	. 01-centos-openstack/07-show-IPs.sh
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 
-(8) After you login to the client VM, execute:
+(9) After you login to the client VM, execute:
 
 ::
 
@@ -108,9 +108,10 @@ To use Eclipse plugin (which acts as client) and test your setup, follow those s
 	
 	hadoop fs –copyToLocal text /user/root/text
 
-(9)	Keep Hadoop client terminal open, and from Eclipse: right-click on WorkCountDriver.java -> Run As -> Run On Hadoop -> Select your server or define a new one (see step 2 above for the settings)
+(10)	Keep Hadoop client terminal open, and from Eclipse: right-click on WorkCountDriver.java -> Run As -> Run On Hadoop -> Select your server (or define a new one, see step 2 above for the settings)
 
-(10)	From Hadoop client, execute:
+(11)	From Hadoop client, execute:
+
 ::
 
 hadoop fs -cat /user/root/output/part-00000
