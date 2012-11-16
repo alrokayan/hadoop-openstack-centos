@@ -83,7 +83,7 @@ To use Eclipse plugin (which acts as another Hadoop client) and test your setup,
 (3)	Download Hadoop Jars: http://hadoop.apache.org/releases.html#Download and uncompress it, then place it in your home or C:\\ directory, or anywhere you like.
 (4)	Open Eclipse then choose: File -> New -> Project -> *MapReduce Project*.
 (5)	Put any project name, then click ``Configure Hadoop install directory…``, then cleck ``Browse...`` and select your uncompressed Hadoop Jars folder, example: /Users/alrokayan/hadoop-0.22.0, then click Apply -> OK -> Finish.
-(6)	Drag the three .java files from ``Eclipse-Example`` folder (``WordCountDriver.java``, ``WordCountMap.java``, and ``WordCountReduce.java``) into the ``src`` folder (not the project it self) in Eclipse, then choose copy, then press OK.
+(6)	Drag (or copy-and-past) the three .java files from ``Eclipse-Example`` folder (``WordCountDriver.java``, ``WordCountMap.java``, and ``WordCountReduce.java``) into the ``src`` folder (not the project it self) in Eclipse, then choose copy, then press OK.
 (7) Make sure that the ``config\configrc`` file has the corrent values for your OpenStack.
 (8)	From OpenStack controller, execute :
 
