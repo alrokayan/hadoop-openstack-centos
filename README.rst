@@ -59,8 +59,8 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 (16)	From *MasterTerminal*, execute ``07-start-master`` folder.
 (17)	From *SlaveTerminal*, execute ``08-start-slaves`` folder.
 (18)	From *ClientTerminal*, execute ``09-start-client`` folder.
-(19)	From *OpenStackTerminal*, execute ``10-save-slave-image`` folder.
-(20)	From *OpenStackTerminal*, keep executing ``10-save-slave-image/02-show-images.sh`` until you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
+(19)	From *OpenStackTerminal*, execute ``10-save-slave-image-openstack`` folder.
+(20)	From *OpenStackTerminal*, keep executing ``10-save-slave-image-openstack/02-show-images.sh`` until you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
 (21)	From *OpenStackTerminal*, execute ``11-forward-webUI-openstack`` folder.
 
 Execute Hadoop Job From Eclipse Plugin
