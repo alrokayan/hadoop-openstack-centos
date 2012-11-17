@@ -290,3 +290,9 @@ Troubleshooting
 
 	hadoop fs -rm -r /user/root/output
 -	Rename the output folder. For example: form WorkCountDriver.java by replace ``/user/root/output`` with ``/user/root/output1``.
+
+
+Sources
+-------
+- Cloudera CDH4 Installation Guide: https://ccp.cloudera.com/display/CDH4DOC/CDH4+Installation+Guide
+- DAK1N1 Blog: http://dak1n1.com/blog/9-hadoop-el6-install

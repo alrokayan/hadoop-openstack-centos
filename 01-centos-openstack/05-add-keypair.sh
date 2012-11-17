@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Delete centos_key key
+nova keypair-delete centos_key
 
 # Create a keypair, which is injected by OpenStack
 # into VMs to allow password-less SSH connections.
