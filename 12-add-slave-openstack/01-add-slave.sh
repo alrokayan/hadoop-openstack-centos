@@ -18,7 +18,7 @@
 . ../config/configrc
 
 
-if [ $# -ne 3 ]
+if [ $# -eq 3 ]
 then
     # Create a VM instance from the CentOS image and inject the
 	# generated public key for password-less SSH connections
@@ -28,7 +28,7 @@ then
 	nova list
 	
 else
-	if [ $# -ne 2 ]
+	if [ $# -eq 2 ]
 	then
     	# Create a VM instance from the CentOS image and inject the
 		# generated public key for password-less SSH connections
