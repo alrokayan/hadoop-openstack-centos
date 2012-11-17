@@ -15,6 +15,5 @@
 # limitations under the License.
 
 # Copy files
-cp centos_key.pem ~/centos_key.pem
 cp ../ssh-into-VMs/show-IPs.sh ~/show-IPs.sh
 cp ../ssh-into-VMs/ssh-into-vm.sh ~/ssh-into-vm.sh

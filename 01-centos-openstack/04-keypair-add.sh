@@ -17,5 +17,5 @@
 
 # Create a keypair, which is injected by OpenStack
 # into VMs to allow password-less SSH connections.
-nova keypair-add centos_key > centos_key.pem
-chmod 600 centos_key.pem
+nova keypair-add centos_key > ~/centos_key.pem
+chmod 600 ~/centos_key.pem
