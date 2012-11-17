@@ -22,6 +22,8 @@ if [ $# -eq 3 ]
 then
 	echo "Forcing the VM to boot on compute host: $3"
 	
+	echo "nova boot --image hadoop-slave-image --flavor $1 --key_name centos_key --hint force_hosts=$3 $2"
+	
     # Create a VM instance from the CentOS image and inject the
 	# generated public key for password-less SSH connections
 	nova boot --image hadoop-slave-image --flavor $1 --key_name centos_key --hint force_hosts=$3 $2
