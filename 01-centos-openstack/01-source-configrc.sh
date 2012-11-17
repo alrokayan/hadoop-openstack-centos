@@ -15,8 +15,8 @@
 # limitations under the License.
 
 
-echo "You have to make the environmental variables available every time you login, by runing: "
-echo ". 01-source-configrc.sh"
+echo "Done. Please note: you have to make the environmental variables available every time you login, by runing: "
+echo ". hadoop-openstack-centos/config/configrc"
 
 # Export the variables defined in ../config/configrc
 . ../config/configrc
