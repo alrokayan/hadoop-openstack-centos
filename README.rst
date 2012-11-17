@@ -275,7 +275,11 @@ You can monitor Hadoop using two Web UI:
 
 Troubleshooting
 ----------------
-*Error:* org.apache.hadoop.mapred.FileAlreadyExistsException
+*Error:*
+
+::
+
+	org.apache.hadoop.mapred.FileAlreadyExistsException
 
 *Solutions:* (choose one of the two solutions):
 
@@ -289,9 +293,17 @@ Troubleshooting
 
 -------
 
-*Error:* –copyToLocal: Unknown command  
+*Error:*
 
-*Error:* -cat: Unknown command
+::
+	
+	–copyToLocal: Unknown command  
+
+*Error:*
+
+::
+	
+	-cat: Unknown command
 
 *Solution:* Retype the hyphen (-) from your keyboard in your terminal.
 
