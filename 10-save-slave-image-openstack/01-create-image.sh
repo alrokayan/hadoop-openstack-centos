@@ -16,3 +16,6 @@
 
 # Create new OpenStack image form the slave VM
 nova image-create hadoop-slave1 hadoop-slave-image
+
+# Show images
+nova image-list
