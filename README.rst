@@ -106,7 +106,7 @@ To use Eclipse plugin (which acts as another Hadoop client) and test your setup,
 	test
 	" > text
 	
-	hadoop fs –copyToLocal text /user/root/text
+	hadoop fs –copyFromLocal text /user/root/text
 
 (10)	Keep Hadoop client terminal open, and from Eclipse: right-click on WorkCountDriver.java -> Run As -> Run On Hadoop -> Select your server (or define a new one, see step 2 above for the settings)
 
@@ -163,7 +163,7 @@ We will use Eclipse to develop the application then export it as Jar to be ready
 	test
 	" > text
 	
-	hadoop fs -copyToLocal text /user/root/text
+	hadoop fs -copyFromLocal text /user/root/text
 
 (12)	From Hadoop client, download the jar file. Replace the link with your public dropbox link (or whatever method do you use to move the jar file to the client VM):
 
@@ -297,7 +297,7 @@ Troubleshooting
 
 ::
 	
-	–copyToLocal: Unknown command  
+	–copyFromLocal: Unknown command  
 
 *Error:*
 
@@ -306,6 +306,32 @@ Troubleshooting
 	-cat: Unknown command
 
 *Solution:* Retype the hyphen (-) from your keyboard in your terminal.
+
+--------
+
+*Error:*
+
+::
+
+	ERROR security.UserGroupInformation: PriviledgedActionException as:root
+
+*Solution:* Maybe the input file does not exist
+
+----------
+
+*Error:*
+
+::
+	
+	copyToLocal: `/user/root/text': No such file or directory
+
+*Solution:* check if you want "copyToLocal" or "copyFromLocal", then ``ls`` local and HDFS folder. To ``ls`` HDFS do:
+
+::
+
+	hadoop fs -ls /path/to/folder
+
+
 
 Sources
 -------
