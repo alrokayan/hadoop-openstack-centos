@@ -36,9 +36,7 @@ else
 		
 		# show VMs
 		nova list
-		
-		exit 1
-		
+				
 	else
 		echo "[[[[[ERROR]]]]] You must specify three (or two) arguments - instance type, machine name, and compute host (optional).
 
