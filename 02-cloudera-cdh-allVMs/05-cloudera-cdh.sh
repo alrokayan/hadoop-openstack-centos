@@ -22,7 +22,6 @@ wget http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera
 yum install -y cloudera-cdh-4-0.noarch.rpm
 cd /etc/yum.repos.d/
 wget http://archive.cloudera.com/cdh4/redhat/6/x86_64/cdh/cloudera-cdh4.repo
-yum repolist
 rpm --import http://archive.cloudera.com/cdh4/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera
 
 cd ~/hadoop-openstack-centos/02-cloudera-cdh-allVMs/
