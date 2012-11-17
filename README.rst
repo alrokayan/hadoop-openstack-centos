@@ -290,6 +290,7 @@ Troubleshooting
 -------
 
 *Error:* –copyToLocal: Unknown command  
+
 *Error:* -cat: Unknown command
 
 *Solution:* Retype the hyphen (-) from your keyboard in your terminal.
