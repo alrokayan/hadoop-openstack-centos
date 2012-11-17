@@ -30,22 +30,22 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 ::
 
 	cd hadoop-openstack-centos
-	. 01-centos-openstack/08-show-IPs.sh
-	. 01-centos-openstack/09-ssh-into-vm.sh <IP ADDRESS FOR THE MASTER FROM THE PERVIOUS COMMAND>
+	. ~/show-IPs.sh
+	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE MASTER FROM THE PERVIOUS COMMAND>
 (8)	From *SlaveTerminal* login to your slave node, by executing:
 
 ::
 
 	cd hadoop-openstack-centos
-	. 01-centos-openstack/08-show-IPs.sh
-	. 01-centos-openstack/09-ssh-into-vm.sh <IP ADDRESS FOR SLAVE FROM THE PERVIOUS COMMAND>
+	. ~/show-IPs.sh
+	. ~/ssh-into-vm.sh <IP ADDRESS FOR SLAVE FROM THE PERVIOUS COMMAND>
 (9)	From *ClientTerminal* login to your client node, by executing:
 
 ::
 
 	cd hadoop-openstack-centos
-	. 01-centos-openstack/08-show-IPs.sh
-	. 01-centos-openstack/09-ssh-into-vm.sh <IP ADDRESS FOR CLIENT FROM THE PERVIOUS COMMAND>
+	. ~/show-IPs.sh
+	. ~/ssh-into-vm.sh <IP ADDRESS FOR CLIENT FROM THE PERVIOUS COMMAND>
 (10)	From the three VM terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute: 
 
 ::
@@ -61,7 +61,7 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 
 ::
 
-	. 01-centos-openstack/08-show-IPs.sh
+	. ~/show-IPs.sh
 
 (16)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``06-config-allVMs`` folder.
 (17)	From *MasterTerminal*, execute ``07-start-master`` folder.
@@ -95,8 +95,8 @@ To use Eclipse plugin (which acts as another Hadoop client) and test your setup,
 
 ::
 
-	. 01-centos-openstack/08-show-IPs.sh
-	. 01-centos-openstack/09-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
+	. ~/show-IPs.sh
+	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 
 (9) After you login to the client VM, execute:
 
@@ -152,8 +152,8 @@ We will use Eclipse to develop the application then export it as Jar to be ready
 
 ::
 
-	. 01-centos-openstack/07-show-IPs.sh
-	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
+	. ~/show-IPs.sh
+	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 
 (11) After you login to the client VM, execute:
 
@@ -254,8 +254,8 @@ If the VM is ACTIVE, login to the client VM by executing this command:
 
 ::
 
-	. 01-centos-openstack/07-show-IPs.sh
-	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
+	. ~/show-IPs.sh
+	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 	
 From the client VM execute this command to see if the new salve (Data Node) is running:
 
