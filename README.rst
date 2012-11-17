@@ -171,6 +171,7 @@ We will use Eclipse to develop the application then export it as Jar to be ready
 (10)	From Hadoop client, download the jar file. Replace the link with your public dropbox link (or whatever method do you use to move the jar file to the client VM):
 
 ::
+
 	wget https://dl.dropbox.com/u/98652/Hadoop_JARs/WordCount.jar
 
 (11)	Execute the job without specifying the input and output (We have defined them in WordCountDriver class)
