@@ -29,21 +29,18 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 
 ::
 
-	cd hadoop-openstack-centos
 	. ~/show-IPs.sh
 	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE MASTER FROM THE PERVIOUS COMMAND>
 (8)	From *SlaveTerminal* login to your slave node, by executing:
 
 ::
 
-	cd hadoop-openstack-centos
 	. ~/show-IPs.sh
 	. ~/ssh-into-vm.sh <IP ADDRESS FOR SLAVE FROM THE PERVIOUS COMMAND>
 (9)	From *ClientTerminal* login to your client node, by executing:
 
 ::
 
-	cd hadoop-openstack-centos
 	. ~/show-IPs.sh
 	. ~/ssh-into-vm.sh <IP ADDRESS FOR CLIENT FROM THE PERVIOUS COMMAND>
 (10)	From the three VM terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute: 
