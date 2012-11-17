@@ -163,7 +163,7 @@ We will use Eclipse to develop the application then export it as Jar to be ready
 	test
 	" > text
 	
-	hadoop fs –copyToLocal text /user/root/text
+	hadoop fs -copyToLocal text /user/root/text
 
 (12)	From Hadoop client, download the jar file. Replace the link with your public dropbox link (or whatever method do you use to move the jar file to the client VM):
 
@@ -286,6 +286,13 @@ Troubleshooting
 	hadoop fs -rm -r /user/root/output
 -	Rename the output folder. For example: form WorkCountDriver.java by replace ``/user/root/output`` with ``/user/root/output1``.
 
+
+-------
+
+*Error:* –copyToLocal: Unknown command
+*Error:* -cat: Unknown command
+
+*Solution:* Retype the hyphen (-) from your keyboard in your terminal.
 
 Sources
 -------
