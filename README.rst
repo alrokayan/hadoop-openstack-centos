@@ -24,28 +24,28 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 	cd hadoop-openstack-centos
 (4)	From *OpenStackTerminal*, edit ``config\configrc`` file to match your OpenStack setup.
 (5)	From *OpenStackTerminal*, execute ``01-centos-openstack`` folder. Please note that ``01-centos-openstack\07-boot-centos-VMs.sh`` takes three arguments, which are the OpenStack compute host names for master, slave, then client. ``01-centos-openstack\06-show-hosts.sh`` will show you a list of OpenStack compute host names.
-(6)	Open three new terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*) for the VMs and login to your controller form all the three terminals. Now you should have 4 terminals, we do not need more.
-(7)	From *MasterTerminal* login to your master node, execute:
+(6)	Open three new terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*) for the VMs and login to your controller form all the three terminals. Now you should have 4 terminals - all logged into OpenStack controller.
+(7)	From *MasterTerminal* login to your master node, by executing:
 
 ::
 
 	cd hadoop-openstack-centos
-	. 01-centos-openstack/07-show-IPs.sh
-	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE MASTER FROM THE PERVIOUS COMMAND>
-(8)	From *SlaveTerminal* login to your slave node, execute:
+	. 01-centos-openstack/08-show-IPs.sh
+	. 01-centos-openstack/09-ssh-into-vm.sh <IP ADDRESS FOR THE MASTER FROM THE PERVIOUS COMMAND>
+(8)	From *SlaveTerminal* login to your slave node, by executing:
 
 ::
 
 	cd hadoop-openstack-centos
-	. 01-centos-openstack/07-show-IPs.sh
-	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR SLAVE FROM THE PERVIOUS COMMAND>
-(9)	From *ClientTerminal* login to your client node, execute:
+	. 01-centos-openstack/08-show-IPs.sh
+	. 01-centos-openstack/09-ssh-into-vm.sh <IP ADDRESS FOR SLAVE FROM THE PERVIOUS COMMAND>
+(9)	From *ClientTerminal* login to your client node, by executing:
 
 ::
 
 	cd hadoop-openstack-centos
-	. 01-centos-openstack/07-show-IPs.sh
-	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR CLIENT FROM THE PERVIOUS COMMAND>
+	. 01-centos-openstack/08-show-IPs.sh
+	. 01-centos-openstack/09-ssh-into-vm.sh <IP ADDRESS FOR CLIENT FROM THE PERVIOUS COMMAND>
 (10)	From the three VM terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute: 
 
 ::
@@ -57,18 +57,23 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 (12)	From *MasterTerminal*, execute ``03-install-master`` folder.
 (13)	From *SlaveTerminal*, execute ``04-install-slave`` folder.
 (14)	From *ClientTerminal*, execute ``05-install-client`` folder.
-(15)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), edit ``config\core-site.xml``, ``config\hdfs-site.xml``, ``config\mapred-site.xml``, and ``config\hosts`` according to ``01-centos-openstack`` execution result.
+(15)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), edit ``config\hosts`` by replacing 10.0.0.4 with the master VM IP address. You can get the IP address of the master VM by executing this command from *OpenStackTerminal*:
+
+::
+
+	. 01-centos-openstack/08-show-IPs.sh
+
 (16)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``06-config-allVMs`` folder.
-(17)	From *OpenStackTerminal*, execute ``07-start-master`` folder.
-(18)	From *MasterTerminal*, execute ``08-start-slaves`` folder.
-(19)	From *SlaveTerminal*, execute ``09-save-slave-image`` folder.
+(17)	From *MasterTerminal*, execute ``07-start-master`` folder.
+(18)	From *SlaveTerminal*, execute ``08-start-slaves`` folder.
+(19)	From *OpenStackTerminal*, execute ``09-save-slave-image`` folder.
 (20)	From *OpenStackTerminal*, keep executing ``09-save-slave-image/02-show-images.sh`` until you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
 (21)	From *ClientTerminal*, execute ``10-start-client`` folder.
 (22)	From *OpenStackTerminal*, execute ``11-forward-webUI-openstack`` folder.
 
 Execute Hadoop Job From Eclipse Plugin
 --------------------------------------
-Eclipse can be installed inside an OpenStack VM (Other than the VMs that we have provisioned above), or just use your personal computer that can access the Master node directly. To use your personal computer, you must be able to ssh to the Master directly, not via OpenStack controller. What I do is just plug my personal computer to the same OpenStack switch. However, if you can not jump to next section which is *"Execute Hadoop Job From Hadoop Client VM"*.
+Eclipse can be installed inside an OpenStack VM (Other than the VMs that we have provisioned above), or just use your personal computer that can access the Master node directly. To use your personal computer, you must be able to ssh to the Master directly, not via OpenStack controller. What I do is just plug my personal computer to the same OpenStack switch. However, if you can not jump to next section, which is *"Execute Hadoop Job From Hadoop Client VM"*.
 
 To use Eclipse plugin (which acts as another Hadoop client) and test your setup, follow those steps:
 
@@ -90,8 +95,8 @@ To use Eclipse plugin (which acts as another Hadoop client) and test your setup,
 
 ::
 
-	. 01-centos-openstack/07-show-IPs.sh
-	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
+	. 01-centos-openstack/08-show-IPs.sh
+	. 01-centos-openstack/09-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 
 (9) After you login to the client VM, execute:
 
@@ -143,14 +148,14 @@ We will use Eclipse to develop the application then export it as Jar to be ready
 (7) Right-click on the project name -> Export -> JAR file -> Next
 (8) Click the ``Browse`` button to specify the location of the exported Jar file. Put it anywhere where you can move it to the client VM. What I do is put it in the public folder of Dropbox so I can download it (wget it) from the client VM. Don not forget to add .jar at the end. Mine looks like this: /Users/alrokayan/Dropbox/Public/Hadoop_JARs/WordCount.jar. Ignore the warnings.
 (9) From OpenStack controller, make sure that the ``config\configrc`` file has the correct values for your OpenStack setup.
-(8)	From OpenStack controller, execute :
+(10)	From OpenStack controller, execute :
 
 ::
 
 	. 01-centos-openstack/07-show-IPs.sh
 	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 
-(9) After you login to the client VM, execute:
+(11) After you login to the client VM, execute:
 
 ::
 
@@ -168,13 +173,13 @@ We will use Eclipse to develop the application then export it as Jar to be ready
 	
 	hadoop fs –copyToLocal text /user/root/text
 
-(10)	From Hadoop client, download the jar file. Replace the link with your public dropbox link (or whatever method do you use to move the jar file to the client VM):
+(12)	From Hadoop client, download the jar file. Replace the link with your public dropbox link (or whatever method do you use to move the jar file to the client VM):
 
 ::
 
 	wget https://dl.dropbox.com/u/98652/Hadoop_JARs/WordCount.jar
 
-(11)	Execute the job without specifying the input and output (We have defined them in WordCountDriver class)
+(13)	Execute the job without specifying the input and output (We have defined them in WordCountDriver class)
 
 ::
 
@@ -188,7 +193,7 @@ Or you can set the input and output
 
 Note: the input can be file or folder with many files
 
-(12)	From Hadoop client, execute:
+(14)	From Hadoop client, execute:
 
 ::
 
@@ -222,7 +227,7 @@ Examples:
 
 	. 12-add-slave-openstack\01-add-slave.sh m1.small hadoop-slave3
 
-You don not have to specify the ``compute_host``. If you passed only the first two arguments OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so it is a good idea to distribute disk I/O load between the hosts.
+You don not have to specify the ``compute_host``. If you passed only the first two arguments OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so it is a good idea to distribute disk I/O load between the hosts manually.
 
 You can get a list of *compute nodes* by executing this command:
 ::
@@ -233,21 +238,29 @@ You can get a list of current *instance types* by executing this command:
 You can add new *instance type* by executing this command:
 ::
 	nova-manage instance_type create m1.xsmall 1024 1 10 0 0 0
-Where ``1024`` is the memory size, ``1`` is the number of cores (VCPU), and ``10`` is the hard disk space.
+Where ``1024`` is the memory size, ``1`` is the number of cores (VCPU), and ``10`` is the disk space.
 
 
 Verification
 ^^^^^^^^^^^^^
 
 You can verify if the slave node has been added by first check if the slave VM is ACTIVE by executing this command from OpenStack controller:
+
 ::
+
 	nova list
-If the VM is ACTIVE, login to the slave VM by executing this command:
+	
+If the VM is ACTIVE, login to the client VM by executing this command:
+
 ::
+
 	. 01-centos-openstack/07-show-IPs.sh
-	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE SLAVE>
-From the slave VM execut this command to see if the new salve (Data Node) is running:
+	. 01-centos-openstack/08-ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
+	
+From the client VM execute this command to see if the new salve (Data Node) is running:
+
 ::
+
 	sudo -u hdfs hadoop dfsadmin -report
 	
 
