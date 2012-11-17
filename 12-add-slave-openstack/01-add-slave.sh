@@ -42,7 +42,7 @@ then
 	exit 1
 fi
 
-echo "You must specify three (or two) arguments - instance type, machine name, and compute host (optional).
+echo "[[[[[ERROR]]]]] You must specify three (or two) arguments - instance type, machine name, and compute host (optional).
 
 Example: . 12-add-slave-openstack\01-add-slave.sh m1.xsmall hadoop-slave2 compute1
 	

@@ -19,7 +19,7 @@ if [ $# -eq 1 ]
 then
 	echo "$1 hadoop-master" >> /etc/hosts
 else
-	echo "You must specify one argument - The Ip address of hadoop-master.
+	echo "[[[[[ERROR]]]]] You must specify one argument - The Ip address of hadoop-master.
 	
 	You can get the IP address of the master VM by executing this command from *OpenStackTerminal*: . ~/show-IPs.sh"
 fi

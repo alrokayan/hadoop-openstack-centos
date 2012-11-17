@@ -36,7 +36,7 @@ else
 		# show VMs
 		nova list
 	else
-		echo "You must specify three arguments - the OpenStack compute host names for master, slave, then client."
+		echo "[[[[[ERROR]]]]] You must specify three arguments - the OpenStack compute host names for master, slave, then client."
 		echo "You can get the compute host names from:"
 		nova-manage service list
 	fi

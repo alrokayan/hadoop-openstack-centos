@@ -31,7 +31,7 @@ then
 	cat /etc/sysconfig/iptables | grep 50070
 	cat /etc/sysconfig/iptables | grep 50030
 else
-	echo "You must specify one argument - the IP address of the master VM, you can get it from:"
+	echo "[[[[[ERROR]]]]] You must specify one argument - the IP address of the master VM, you can get it from:"
     
     . ~/show-IPs.sh
 

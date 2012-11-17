@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Export the variables defined in ../config/configrc
-. hadoop-openstack-centos/config/configrc
+# Export the variables defined in ~/hadoop-openstack-centos/config/configrc
+. ~/hadoop-openstack-centos/config/configrc
 
 # show VMs
 nova list
