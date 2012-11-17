@@ -14,8 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Export the variables defined in ../config/configrc
-. ../config/configrc
-
-# show VMs
-nova list
+# Copy files
+cp centos_key.pem ~/centos_key.pem
+cp ../ssh-into-VMs/show-IPs.sh ~/show-IPs.sh
+cp ../ssh-into-VMs/ssh-into-vm.sh ~/ssh-into-vm.sh
