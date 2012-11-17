@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ $# -ne 0 ]
+if [ $# -eq 0 ]
 then
     # Create a VM instance from the CentOS image and inject the
 	# generated public key for password-less SSH connections
@@ -25,7 +25,7 @@ then
 	# show VMs
 	nova list
 else
-	if [ $# -ne 3 ]
+	if [ $# -eq 3 ]
 	then
     	# Create a VM instance from the CentOS image and inject the
 		# generated public key for password-less SSH connections
