@@ -14,12 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-# Create a VM instance from the CentOS image and inject the
-# generated public key for password-less SSH connections
-nova boot --image centos60 --flavor m1.xsmall --key_name centos_key hadoop-master
-nova boot --image centos60 --flavor m1.xsmall --key_name centos_key hadoop-slave1
-nova boot --image centos60 --flavor m1.tiny --key_name centos_key hadoop-client
-
-# show VMs
-nova list
+passwd

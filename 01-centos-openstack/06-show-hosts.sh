@@ -14,4 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-yum install -y hadoop-0.20-mapreduce-jobtracker hadoop-hdfs-namenode
+# show compute hosts
+nova-manage service list
+
+echo "Please note that the next step: '07-boot-centos-VMs.sh' takes three arguments, which are the OpenStack compute host names for master, slave, then client."

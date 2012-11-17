@@ -14,7 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Export the variables defined in ../config/configrc
-. ../config/configrc
-
-# ToDo
+passwd

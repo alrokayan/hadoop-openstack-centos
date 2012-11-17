@@ -15,5 +15,3 @@
 # limitations under the License.
 
 yum install -y hadoop-client
-
-sync
