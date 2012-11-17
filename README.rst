@@ -338,6 +338,7 @@ Troubleshooting
 	hadoop fs -ls /path/to/folder
 
 -----------
+
 *Error:*
 
 ::
