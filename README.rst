@@ -315,7 +315,13 @@ Troubleshooting
 
 	ERROR security.UserGroupInformation: PriviledgedActionException as:root
 
-*Solution:* Maybe the input file does not exist
+*Solution:* Delete all folders in HDFS then execute ``07-start-master/03-hdfs-system-folders.sh`` again. To delete folders in HDFS execute:
+
+::
+
+	sudo -u hdfs hadoop fs -rm -r /user
+	sudo -u hdfs hadoop fs -rm -r /var
+	sudo -u hdfs hadoop fs -rm -r /tmp
 
 ----------
 
