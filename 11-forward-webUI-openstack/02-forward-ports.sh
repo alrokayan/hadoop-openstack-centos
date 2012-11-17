@@ -14,25 +14,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ $# -ne 1 ]
+if [ $# -eq 1 ]
 then
-    echo "You must specify one argument - the IP address of the master VM, you can get from:"
-    . ../config/configrc
-    nova list
-    exit 1
+	# Add entries to iptables
+	iptables -t nat -A PREROUTING -p tcp --dport 50070 -j DNAT --to $1:50070
+	iptables -t nat -A PREROUTING -p tcp --dport 50030 -j DNAT --to $1:50030
+
+	# Allow IPv4 forward
+	sysctl net.ipv4.ip_forward=1
+
+	# Save and reset iptables
+	service iptables save
+	service iptables restart
+
+	# Show the entries to iptables
+	cat /etc/sysconfig/iptables | grep 50070
+	cat /etc/sysconfig/iptables | grep 50030
+else
+	echo "You must specify one argument - the IP address of the master VM, you can get it from:"
+    
+    . ~/show-IPs.sh
+
 fi
-
-# Add entries to iptables
-iptables -t nat -A PREROUTING -p tcp --dport 50070 -j DNAT --to $1:50070
-iptables -t nat -A PREROUTING -p tcp --dport 50030 -j DNAT --to $1:50030
-
-# Allow IPv4 forward
-sysctl net.ipv4.ip_forward=1
-
-# Save and reset iptables
-service iptables save
-service iptables restart
-
-# Show the entries to iptables
-cat /etc/sysconfig/iptables | grep 50070
-cat /etc/sysconfig/iptables | grep 50030

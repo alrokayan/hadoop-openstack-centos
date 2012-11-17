@@ -50,23 +50,18 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 	yum install -y git
 	git clone https://github.com/alrokayan/hadoop-openstack-centos.git
 	cd hadoop-openstack-centos
+
 (11)	From the three VM terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``02-cloudera-cdh-allVMs`` folder.
 (12)	From *MasterTerminal*, execute ``03-install-master`` folder.
 (13)	From *SlaveTerminal*, execute ``04-install-slave`` folder.
 (14)	From *ClientTerminal*, execute ``05-install-client`` folder.
-(15)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), edit ``config\hosts`` by replacing 10.0.0.4 with the master VM IP address. You can get the IP address of the master VM by executing this command from *OpenStackTerminal*:
-
-::
-
-	. ~/show-IPs.sh
-
-(16)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``06-config-allVMs`` folder.
-(17)	From *MasterTerminal*, execute ``07-start-master`` folder.
-(18)	From *SlaveTerminal*, execute ``08-start-slaves`` folder.
-(19)	From *OpenStackTerminal*, execute ``09-save-slave-image`` folder.
-(20)	From *OpenStackTerminal*, keep executing ``09-save-slave-image/02-show-images.sh`` until you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
-(21)	From *ClientTerminal*, execute ``10-start-client`` folder.
-(22)	From *OpenStackTerminal*, execute ``11-forward-webUI-openstack`` folder.
+(15)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``6-config-allVMs`` folder.
+(16)	From *MasterTerminal*, execute ``07-start-master`` folder.
+(17)	From *SlaveTerminal*, execute ``08-start-slaves`` folder.
+(18)	From *OpenStackTerminal*, execute ``09-save-slave-image`` folder.
+(19)	From *OpenStackTerminal*, keep executing ``09-save-slave-image/02-show-images.sh`` until you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
+(20)	From *ClientTerminal*, execute ``10-start-client`` folder.
+(21)	From *OpenStackTerminal*, execute ``11-forward-webUI-openstack`` folder.
 
 Execute Hadoop Job From Eclipse Plugin
 --------------------------------------
