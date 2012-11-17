@@ -337,6 +337,18 @@ Troubleshooting
 
 	hadoop fs -ls /path/to/folder
 
+-----------
+*Error:*
+
+::
+
+	Permission denied: user=root, access=WRITE, inode="/tmp/hadoop-mapred/mapred":hdfs:supergroup:drwxr-xr-x
+
+*Solution:* Execute this command (Or what ever the folder):
+
+::
+
+	sudo -u hdfs hadoop fs -chmod 1777 /tmp/hadoop-mapred/mapred
 
 
 Sources

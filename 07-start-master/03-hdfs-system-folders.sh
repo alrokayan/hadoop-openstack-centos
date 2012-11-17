@@ -16,6 +16,7 @@
 
 sudo -u hdfs hadoop fs -mkdir /tmp
 sudo -u hdfs hadoop fs -chmod -R 1777 /tmp
+
 sudo -u hdfs hadoop fs -mkdir /var
 sudo -u hdfs hadoop fs -mkdir /var/lib
 sudo -u hdfs hadoop fs -mkdir /var/lib/hadoop-hdfs
@@ -25,8 +26,12 @@ sudo -u hdfs hadoop fs -mkdir /var/lib/hadoop-hdfs/cache/mapred/mapred
 sudo -u hdfs hadoop fs -mkdir /var/lib/hadoop-hdfs/cache/mapred/mapred/staging
 sudo -u hdfs hadoop fs -chmod 1777 /var/lib/hadoop-hdfs/cache/mapred/mapred/staging
 sudo -u hdfs hadoop fs -chown -R mapred /var/lib/hadoop-hdfs/cache/mapred
-sudo -u hdfs hadoop fs -ls -R /
-sudo -u hdfs hadoop fs -mkdir /tmp/mapred/system
-sudo -u hdfs hadoop fs -chown mapred:hadoop /tmp/mapred/system
+
+sudo -u hdfs hadoop fs -mkdir /tmp/hadoop-mapred/mapred/system
+sudo -u hdfs hadoop fs -chown mapred:hadoop /tmp/hadoop-mapred/mapred/system
+sudo -u hdfs hadoop fs -chmod 1777 /tmp/hadoop-mapred/mapred
+
 sudo -u hdfs hadoop fs -mkdir /user/root
 sudo -u hdfs hadoop fs -chown root /user/root
+
+sudo -u hdfs hadoop fs -ls -R /
