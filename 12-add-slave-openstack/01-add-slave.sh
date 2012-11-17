@@ -28,7 +28,7 @@ then
 	# generated public key for password-less SSH connections
 	nova boot --image hadoop-slave-image --flavor $1 --key_name centos_key --hint force_hosts=$3 $2
 	
-	# show VMs
+	# show the VM
 	nova show $2
 	
 else
@@ -38,7 +38,7 @@ else
 		# generated public key for password-less SSH connections
 		nova boot --image hadoop-slave-image --flavor $1 --key_name centos_key $2
 		
-		# show VMs
+		# show the VM
 		nova show $2
 				
 	else
