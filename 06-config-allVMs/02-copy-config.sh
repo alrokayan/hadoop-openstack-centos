@@ -14,6 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cp -f ../config/core-site.xml /etc/hadoop/conf/
-cp -f ../config/hdfs-site.xml /etc/hadoop/conf/
-cp -f ../config/mapred-site.xml /etc/hadoop/conf/
+cp -fr ../config/core-site.xml /etc/hadoop/conf/
+cp -fr ../config/hdfs-site.xml /etc/hadoop/conf/
+cp -fr ../config/mapred-site.xml /etc/hadoop/conf/
