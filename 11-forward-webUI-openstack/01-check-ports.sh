@@ -19,4 +19,4 @@ cat /etc/sysconfig/iptables | grep 50070
 cat /etc/sysconfig/iptables | grep 50030
 
 # Display message
-echo "if you see any iptables entary above this message, please edit '/etc/sysconfig/iptables' and remove those lines, then run: 'service iptables restart' ... DO NOT go to the next step before deleting those entries if they exist"
+echo "If you see any iptables entry above this message, please edit '/etc/sysconfig/iptables' and remove those lines, then run: 'service iptables restart' ... DO NOT go to the next step before deleting those entries if there is any"
