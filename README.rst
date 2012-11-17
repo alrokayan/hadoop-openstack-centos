@@ -213,11 +213,11 @@ Examples:
 
 ::
 
-	. 12-add-slave-openstack\01-add-slave.sh m1.xsmall hadoop-slave2 compute1
+	. 01-add-slave.sh m1.xsmall hadoop-slave2 compute2
 	
 ::
 
-	. 12-add-slave-openstack\01-add-slave.sh m1.small hadoop-slave3
+	. 01-add-slave.sh m1.small hadoop-slave3
 
 You don not have to specify the ``compute_host``. If you passed only the first two arguments OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so it is a good idea to distribute disk I/O load between the hosts manually.
 
@@ -240,13 +240,12 @@ You can verify if the slave node has been added by first check if the slave VM i
 
 ::
 
-	nova list
+	. ~/show-IPs.sh
 	
 If the VM is ACTIVE, login to the client VM by executing this command:
 
 ::
 
-	. ~/show-IPs.sh
 	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 	
 From the client VM execute this command to see if the new salve (Data Node) is running:
