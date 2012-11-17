@@ -30,3 +30,6 @@ rm -rf /tmp/images
 
 # Show image
 glance index
+
+# Go back
+cd ~/hadoop-openstack-centos/01-centos-openstack/

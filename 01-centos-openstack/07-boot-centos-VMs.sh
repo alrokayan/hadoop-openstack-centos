@@ -24,25 +24,20 @@ then
 	
 	# show VMs
 	nova list
+else
+	if [ $# -ne 3 ]
+	then
+    	# Create a VM instance from the CentOS image and inject the
+		# generated public key for password-less SSH connections
+		nova boot --image centos60 --flavor m1.xsmall --key_name centos_key --hint force_hosts=$1 hadoop-master
+		nova boot --image centos60 --flavor m1.xsmall --key_name centos_key --hint force_hosts=$2 hadoop-slave1
+		nova boot --image centos60 --flavor m1.tiny --key_name centos_key --hint force_hosts=$3 hadoop-client
 	
-	exit 1
+		# show VMs
+		nova list
+	else
+		echo "You must specify three arguments - the OpenStack compute host names for master, slave, then client."
+		echo "You can get the compute host names from:"
+		nova-manage service list
+	fi
 fi
-
-if [ $# -ne 3 ]
-then
-    # Create a VM instance from the CentOS image and inject the
-	# generated public key for password-less SSH connections
-	nova boot --image centos60 --flavor m1.xsmall --key_name centos_key --hint force_hosts=$1 hadoop-master
-	nova boot --image centos60 --flavor m1.xsmall --key_name centos_key --hint force_hosts=$2 hadoop-slave1
-	nova boot --image centos60 --flavor m1.tiny --key_name centos_key --hint force_hosts=$3 hadoop-client
-	
-	# show VMs
-	nova list
-	
-	exit 1
-fi
-
-echo "You must specify three arguments - the OpenStack compute host names for master, slave, then client."
-
-echo "You can get the compute host names from:"
-nova-manage service list
