@@ -1,5 +1,5 @@
-A Step-by-Step Guide to Install Hadoop on OpenStack CentOS VMs and Run Jobs via Eclipse Hadoop Plugin
-======================================================================================================
+A Step-by-Step Guide to Install Hadoop on OpenStack CentOS VMs and Run Jobs via Eclipse Hadoop Plugin. With Node Scalability.
+=============================================================================================================================
 
 Project Information
 -------------------
@@ -55,12 +55,12 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 (12)	From *MasterTerminal*, execute ``03-install-master`` folder.
 (13)	From *SlaveTerminal*, execute ``04-install-slave`` folder.
 (14)	From *ClientTerminal*, execute ``05-install-client`` folder.
-(15)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``6-config-allVMs`` folder.
-(16)	From *MasterTerminal*, execute ``07-start-master`` folder.
-(17)	From *SlaveTerminal*, execute ``08-start-slaves`` folder.
-(18)	From *ClientTerminal*, execute ``09-start-client`` folder.
-(19)	From *OpenStackTerminal*, execute ``10-save-slave-image-openstack`` folder.
-(20)	From *OpenStackTerminal*, keep executing ``10-save-slave-image-openstack/02-show-images.sh`` until you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
+(15)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``06-config-allVMs`` folder.
+(19)	From *OpenStackTerminal*, execute ``07-save-slave-image-openstack`` folder.
+(20)	From *OpenStackTerminal*, keep executing ``07-save-slave-image-openstack/02-check-images.sh`` until you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
+(16)	From *MasterTerminal*, execute ``08-start-master`` folder.
+(17)	From *SlaveTerminal*, execute ``09-start-slaves`` folder.
+(18)	From *ClientTerminal*, execute ``10-start-client`` folder.
 (21)	From *OpenStackTerminal*, execute ``11-forward-webUI-openstack`` folder. Please note If you see any iptables entry after you execute ``11-forward-webUI-openstack\01-check-ports.sh``, please edit '/etc/sysconfig/iptables' and remove those lines, then run ``11-forward-webUI-openstack\01-check-ports.sh`` again (the script will restart the iptables) ... DO NOT go to the next step before deleting those entries if there is any.
 
 Execute Hadoop Job From Eclipse Plugin
@@ -202,12 +202,10 @@ You should see:
 
 
 
-Add More Slave Nodes
---------------------
-From OpenStack Controller
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Upscale: Add More Slave Nodes
+-------------------------------
 
-To add more slave nodes you need to execute ``12-add-slave-openstack\01-add-slave.sh`` and passing three arguments: ``instance_type``, ``machine_name``, and ``compute_host`` (optional).
+To add more slave nodes, from OpenStack controller you need to execute: ``12-scalability-openstack\01-upscale.sh`` and passing three arguments: ``instance_type``, ``machine_name``, and ``compute_host`` (optional).
 
 Examples:
 
@@ -221,6 +219,12 @@ Examples:
 
 You don not have to specify the ``compute_host``. If you passed only the first two arguments OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so it is a good idea to distribute disk I/O load between the hosts manually.
 
+However, you can just execute ``01-upscale.sh`` and the script will ask you to input the arguments.
+
+
+Useful OpenStack Commands
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
 You can get a list of *compute nodes* by executing this command:
 ::
 	nova-manage service list
@@ -233,8 +237,17 @@ You can add new *instance type* by executing this command:
 Where ``1024`` is the memory size, ``1`` is the number of cores (VCPU), and ``10`` is the disk space.
 
 
+Downscale: Delete Slave Nodes
+----------------------------
+
+You can downscale your Hadoop cluster by deleting VM nodes, from OpenStack controller you need to execute: ``12-scalability-openstack\02-downscale.sh`` and pass the slave VM name. However, you can just execute ``02-downscale.sh`` and the script will show you a list of VM names, and ask you to inout the right one.
+
+
+
 Verification
-^^^^^^^^^^^^^
+-------------
+
+You need to login to Hadoop client VM before executing any of the commands:
 
 You can verify if the slave node has been added by first check if the slave VM is ACTIVE by executing this command from OpenStack controller:
 
@@ -242,17 +255,30 @@ You can verify if the slave node has been added by first check if the slave VM i
 
 	. ~/show-IPs.sh
 	
-If the VM is ACTIVE, login to the client VM by executing this command:
+If the new slave VM is ACTIVE, login to the client VM by executing this command:
 
 ::
 
 	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
-	
-From the client VM execute this command to see if the new salve (Data Node) is running:
+
+
+Check Salve Nodes
+^^^^^^^^^^^^^^^^^
+
+Execute this command to see if the new salve (Data Node) is running:
 
 ::
 
 	sudo -u hdfs hadoop dfsadmin -report
+	
+Check HDFS Files
+^^^^^^^^^^^^^^^^^
+	
+Execute this command to see all the files in HDFS:
+
+::
+
+	sudo -u hdfs hadoop fs -ls -R /
 	
 
 Web UI Monitoring
@@ -350,7 +376,7 @@ Troubleshooting
 
 	sudo -u hdfs hadoop fs -chmod 1777 /tmp/hadoop-mapred/mapred
 
-Sources
--------
+References
+----------
 - Cloudera CDH4 Installation Guide: https://ccp.cloudera.com/display/CDH4DOC/CDH4+Installation+Guide
 - DAK1N1 Blog: http://dak1n1.com/blog/9-hadoop-el6-install

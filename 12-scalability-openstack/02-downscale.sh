@@ -14,4 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-passwd
+# Export the variables defined in ../config/configrc
+. ../config/configrc
+
+
+if [ $# -eq 1 ]
+then
+	nova delete $1
+	
+else
+	nova list
+	echo "";
+	echo "Please input one of the above slave VM name: ";
+	while read image_name
+	do
+	nova delete $image_name
+fi
+
+
+

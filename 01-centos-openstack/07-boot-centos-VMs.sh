@@ -26,9 +26,7 @@ then
 	nova list
 else
 	if [ $# -eq 3 ]
-	then
-		openstack-config --set /etc/nova/nova.conf DEFAULT allow_admin_api true
-		
+	then		
     	# Create a VM instance from the CentOS image and inject the
 		# generated public key for password-less SSH connections
 		nova boot --image centos60 --flavor m1.xsmall --key_name centos_key --hint force_hosts=$1 hadoop-master

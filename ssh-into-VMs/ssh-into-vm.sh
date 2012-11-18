@@ -17,10 +17,11 @@
 
 # SSH into a VM instance using the generated test.pem key.
 
-if [ $# -ne 1 ]
+if [ $# -eq 1 ]
 then
-    echo "You must specify one arguments - the IP address of the VM instance"
-    exit 1
+	ssh -i centos_key.pem -l root $1
+else
+	echo "You must specify one arguments - the IP address of the VM instance"
 fi
 
-ssh -i centos_key.pem -l root $1
+
