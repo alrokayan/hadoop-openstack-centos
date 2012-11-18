@@ -399,6 +399,8 @@ Force booting VM on specific OpenStack host does not work, even with:
 ::
 
 	openstack-config --set /etc/nova/nova.conf DEFAULT allow_admin_api true
+	service openstack-nova-compute restart
+	service openstack-nova-scheduler restart
 
 References
 ----------
