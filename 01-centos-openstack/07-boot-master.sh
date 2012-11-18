@@ -49,9 +49,11 @@ else
 		echo 'You do not have to specify the compute host. If you kept it blank OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so it is a good idea to distribute disk I/O load between the hosts.'
 		read -p 'Please input one of the above compute host name to boot the MASTER on (optional): ' compute_host
 		
-		nova list
-		echo ''
-		read -p 'Please input the MASTER host name other than what is above (hadoop-master): ' VM_name
+		#nova list
+		#echo ''
+		#read -p 'Please input the MASTER host name other than what is above (hadoop-master): ' VM_name
+		
+		$VM_name = "hadoop-master"
 		
 		if [ -z "$compute_host" ]; then
 			echo "nova boot --image centos60 --flavor $instance_type --key_name centos_key $VM_name"
