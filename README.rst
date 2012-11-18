@@ -225,15 +225,29 @@ However, you can just execute ``01-upscale.sh`` and the script will ask you to i
 Useful OpenStack Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can get a list of *compute nodes* by executing this command:
+List all the running VMs:
+
 ::
+
+	nova list
+
+List of *compute nodes*:
+::
+
 	nova-manage service list
-You can get a list of current *instance types* by executing this command:
+	
+List of current *instance types*:
+
 ::
+
 	nova-manage instance_type list
-You can add new *instance type* by executing this command:
+	
+Add new *instance type*:
+
 ::
+
 	nova-manage instance_type create m1.xsmall 1024 1 10 0 0 0
+
 Where ``1024`` is the memory size, ``1`` is the number of cores (VCPU), and ``10`` is the disk space.
 
 
