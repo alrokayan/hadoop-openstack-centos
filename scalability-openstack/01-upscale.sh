@@ -18,8 +18,7 @@
 . ../config/configrc
 
 
-if [ $# -eq 3 ]
-then
+if [ $# -eq 3 ]; then
 	echo "Forcing the VM to boot on compute host: $3"
 	
 	echo "nova boot --image hadoop-slave-image --flavor $1 --key_name centos_key --hint force_hosts=$3 $2"
@@ -32,8 +31,7 @@ then
 	nova show $2
 	
 else
-	if [ $# -eq 2 ]
-	then
+	if [ $# -eq 2 ]; then
     	# Create a VM instance from the CentOS image and inject the
 		# generated public key for password-less SSH connections
 		nova boot --image hadoop-slave-image --flavor $1 --key_name centos_key $2
@@ -49,14 +47,12 @@ else
 		echo ""
 		echo "You do not have to specify the compute host. If you kept it blank OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so it is a good idea to distribute disk I/O load between the hosts."
 "
-		read -p 'Please input one of the above compute host name to boot the slave on (optional): ' compute_host
+		read -p "Please input one of the above compute host name to boot the slave on (optional): " compute_host
 		nova list
 		echo ""
 		read -p "Please input a new slave host name other than what is above: " VM_name
 		
-		
-		if [ -z "$compute_host" ];
-		then
+		if [ -z "$compute_host" ]; then
 			echo "nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name"
 			#nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name
 		else
