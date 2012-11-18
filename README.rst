@@ -205,7 +205,7 @@ You should see:
 Upscale: Add More Slave Nodes
 -------------------------------
 
-To add more slave nodes, from OpenStack controller you need to execute: ``12-scalability-openstack\01-upscale.sh`` and passing three arguments: ``instance_type``, ``machine_name``, and ``compute_host`` (optional).
+To add more slave nodes, from OpenStack controller you need to execute: ``scalability-openstack\01-upscale.sh`` and passing three arguments: ``instance_type``, ``machine_name``, and ``compute_host`` (optional).
 
 Examples:
 
@@ -240,7 +240,7 @@ Where ``1024`` is the memory size, ``1`` is the number of cores (VCPU), and ``10
 Downscale: Delete Slave Nodes
 ----------------------------
 
-You can downscale your Hadoop cluster by deleting VM nodes, from OpenStack controller you need to execute: ``12-scalability-openstack\02-downscale.sh`` and pass the slave VM name. However, you can just execute ``02-downscale.sh`` and the script will show you a list of VM names, and ask you to inout the right one.
+You can downscale your Hadoop cluster by deleting VM nodes, from OpenStack controller you need to execute: ``scalability-openstack\02-downscale.sh`` and pass the slave VM name. However, you can just execute ``02-downscale.sh`` and the script will show you a list of VM names, and ask you to inout the right one.
 
 
 
