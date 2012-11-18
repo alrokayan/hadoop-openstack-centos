@@ -16,5 +16,3 @@
 
 # show compute hosts
 nova-manage service list
-
-echo "Please note that the next step: '07-boot-centos-VMs.sh' takes three arguments, which are the OpenStack compute host names for master, slave, then client."

@@ -21,6 +21,6 @@ then
 else
 	echo "[[[[[ERROR]]]]] You must specify one argument - The Ip address of hadoop-master.
 	
-	You can get the IP address of the master VM by executing this command from *OpenStackTerminal*: . ~/show-IPs.sh"
+	You can get the IP address of the master VM by executing this command from OpenStack controller: . ~/show-IPs.sh"
 fi
 

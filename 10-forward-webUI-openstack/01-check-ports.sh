@@ -14,4 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-passwd
+# Apply any changes
+service iptables restart
+
+# Show iptables entries
+cat /etc/sysconfig/iptables | grep 50070
+cat /etc/sysconfig/iptables | grep 50030
+
+# Display message
+echo "[[[[[VERY IMPORTANT]]]]] If you see any iptables entry above this message, please edit '/etc/sysconfig/iptables' and remove those lines, then run this script again ... DO NOT go to the next step before deleting those entries if there is any"

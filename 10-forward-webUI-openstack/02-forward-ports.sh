@@ -20,19 +20,27 @@ then
 	iptables -t nat -A PREROUTING -p tcp --dport 50070 -j DNAT --to $1:50070
 	iptables -t nat -A PREROUTING -p tcp --dport 50030 -j DNAT --to $1:50030
 
-	# Allow IPv4 forward
-	sysctl net.ipv4.ip_forward=1
-
-	# Save and reset iptables
-	service iptables save
-	service iptables restart
-
-	# Show the entries to iptables
-	cat /etc/sysconfig/iptables | grep 50070
-	cat /etc/sysconfig/iptables | grep 50030
 else
-	echo "[[[[[ERROR]]]]] You must specify one argument - the IP address of the master VM, you can get it from:"
+    # Export the variables defined in ../config/configrc
+	. ../config/configrc
+	
+	nova list
+	
+    echo ''
+    read -p 'From the above VMs what is the IP address of the MASTER node? ' master_node
     
-    . ~/show-IPs.sh
-
+    # Add entries to iptables
+	iptables -t nat -A PREROUTING -p tcp --dport 50070 -j DNAT --to $master_node:50070
+	iptables -t nat -A PREROUTING -p tcp --dport 50030 -j DNAT --to $master_node:50030
 fi
+
+# Allow IPv4 forward
+sysctl net.ipv4.ip_forward=1
+
+# Save and reset iptables
+service iptables save
+service iptables restart
+
+# Show the entries to iptables
+cat /etc/sysconfig/iptables | grep 50070
+cat /etc/sysconfig/iptables | grep 50030
