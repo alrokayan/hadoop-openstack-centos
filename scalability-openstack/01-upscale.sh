@@ -42,7 +42,7 @@ else
 	else
 		nova-manage instance_type list
 		echo ''
-		read -p 'Please input one of the above instance types name: (example: m1.small)' instance_type
+		read -p 'Please input one of the above instance types name (example: m1.small): ' instance_type
 		
 		nova-manage service list
 		echo ''
@@ -55,10 +55,10 @@ else
 		
 		if [ -z "$compute_host" ]; then
 			echo "nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name"
-			#nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name
+			nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name
 		else
 			echo "nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key --hint force_hosts=$compute_host $VM_name"
-			#nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key --hint force_hosts=$compute_host $VM_name
+			nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key --hint force_hosts=$compute_host $VM_name
 		fi
 	fi
 fi
