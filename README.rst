@@ -174,13 +174,13 @@ We will use Eclipse to develop the application then export it as Jar to be ready
 
 ::
 
-	hadoop jar WordCountA.jar WordCountDriver
+	hadoop jar WordCount.jar WordCountDriver
 	
 Or you can set the input and output
 
 ::
 
-	hadoop jar WordCountA.jar WordCountDriver /user/root/text /user/root/output
+	hadoop jar WordCount.jar WordCountDriver /user/root/text /user/root/output
 
 Note: the input can be file or folder with many files
 
