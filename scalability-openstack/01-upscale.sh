@@ -55,7 +55,7 @@ else
 		read -p "Please input a new slave host name other than what is above: " VM_name
 		
 		
-		if [ -z "$compute_host" ]
+		if [[ -z "$compute_host" ]]
 		then
 			echo "nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name"
 			#nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name
@@ -65,6 +65,3 @@ else
 		fi
 	fi
 fi
-
-
-
