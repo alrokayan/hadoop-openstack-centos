@@ -52,14 +52,14 @@ else
 		echo ""
 		read -p "Please input a new slave host name other than what is above: " VM_name
 		
-		if [ -z "$compute_host" ]; then
+		#if [ -z "$compute_host" ]; then
 			#echo "nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name"
 			#nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name
-			echo "No Compute Host"
-		else
+		#	echo "No Compute Host"
+		#else
 			#echo "nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key --hint force_hosts=$compute_host $VM_name"
 			#nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key --hint force_hosts=$compute_host $VM_name
-			echo "With Compute Host"
-		fi
+		#	echo "With Compute Host"
+		#fi
 	fi
 fi
