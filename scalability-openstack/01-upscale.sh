@@ -41,16 +41,16 @@ else
 				
 	else
 		nova-manage instance_type list
-		echo ""
-		read -p "Please input one of the above instance types name: " instance_type
+		echo ''
+		read -p 'Please input one of the above instance types name: ' instance_type
 		nova-manage service list
-		echo ""
-		echo "You do not have to specify the compute host. If you kept it blank OpenStack scheduler will do it automatically. OpenStack is not data-intensive \(Disk I/O\) aware, so it is a good idea to distribute disk I/O load between the hosts."
+		echo ''
+		echo 'You do not have to specify the compute host. If you kept it blank OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so it is a good idea to distribute disk I/O load between the hosts.'
 "
-		read -p "Please input one of the above compute host name to boot the slave on \(optional\): " compute_host
+		read -p 'Please input one of the above compute host name to boot the slave on (optional): ' compute_host
 		nova list
-		echo ""
-		read -p "Please input a new slave host name other than what is above: " VM_name
+		echo ''
+		read -p 'Please input a new slave host name other than what is above: ' VM_name
 		
 		if [ -z "$compute_host" ]; then
 			#echo "nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name"
