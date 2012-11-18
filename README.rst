@@ -12,6 +12,8 @@ Project Information
 
 Installation Steps
 -------------------
+NOTE: you have to execute the scripts while you are inside the folder, ``cd`` to the folder first.
+
 Steps to install Hadoop on OpenStack CentOS VMs:
 
 (1)	Install OpenStack: https://github.com/alrokayan/openstack-centos-kvm-glusterfs.
