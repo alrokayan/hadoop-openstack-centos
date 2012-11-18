@@ -275,6 +275,15 @@ If the new slave VM is ACTIVE, login to the client VM by executing this command:
 	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
 
 
+Check Master Node
+^^^^^^^^^^^^^^^^^
+
+Execute this command to see if the master node (Name Node) is alive:
+
+::
+
+	sudo -u hdfs hadoop dfs -df
+
 Check Salve Nodes
 ^^^^^^^^^^^^^^^^^
 
@@ -293,6 +302,7 @@ Execute this command to see all the files in HDFS:
 
 	sudo -u hdfs hadoop fs -ls -R /
 	
+
 
 Web UI Monitoring
 -----------------
