@@ -390,6 +390,16 @@ Troubleshooting
 
 	sudo -u hdfs hadoop fs -chmod 1777 /tmp/hadoop-mapred/mapred
 
+
+KNOWN ISSUES
+------------
+
+Force booting VM on specific OpenStack host does not work, even with:
+
+::
+
+	openstack-config --set /etc/nova/nova.conf DEFAULT allow_admin_api true
+
 References
 ----------
 - Cloudera CDH4 Installation Guide: https://ccp.cloudera.com/display/CDH4DOC/CDH4+Installation+Guide
