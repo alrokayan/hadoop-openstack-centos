@@ -21,15 +21,10 @@
 if [ $# -eq 1 ]
 then
 	nova delete $1
-	
 else
 	nova list
 	echo "";
 	echo "Please input one of the above slave VM name: ";
-	while read image_name
-	do
+	read image_name
 	nova delete $image_name
 fi
-
-
-
