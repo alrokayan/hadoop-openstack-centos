@@ -1,4 +1,4 @@
-A Step-by-Step Guide to Install Hadoop on OpenStack CentOS VMs and Run Jobs via Eclipse Hadoop Plugin. With Node Scalability.
+A Step-by-Step Guide to Install Hadoop on OpenStack CentOS VMs and Run Jobs via Eclipse Hadoop Plugin. With Cluster Scalability.
 =============================================================================================================================
 
 Project Information
@@ -8,6 +8,7 @@ Project Information
 -	MapReduce version: MRv1
 -	Binaries source for CentOS: Cloudera CDH4
 -	Java version: Sun Java 1.6
+-	OpenStack version: OpenStack Essex (2012.1)
 
 Installation Steps
 -------------------
