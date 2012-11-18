@@ -56,12 +56,11 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 (13)	From *SlaveTerminal*, execute ``04-install-slave`` folder.
 (14)	From *ClientTerminal*, execute ``05-install-client`` folder.
 (15)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``06-config-allVMs`` folder.
-(19)	From *OpenStackTerminal*, execute ``07-save-slave-image-openstack`` folder.
-(20)	From *OpenStackTerminal*, keep executing ``07-save-slave-image-openstack/02-check-images.sh`` until you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
-(16)	From *MasterTerminal*, execute ``08-start-master`` folder.
-(17)	From *SlaveTerminal*, execute ``09-start-slaves`` folder.
-(18)	From *ClientTerminal*, execute ``10-start-client`` folder.
-(21)	From *OpenStackTerminal*, execute ``11-forward-webUI-openstack`` folder. Please note If you see any iptables entry after you execute ``11-forward-webUI-openstack\01-check-ports.sh``, please edit '/etc/sysconfig/iptables' and remove those lines, then run ``11-forward-webUI-openstack\01-check-ports.sh`` again (the script will restart the iptables) ... DO NOT go to the next step before deleting those entries if there is any.
+(16)	From *OpenStackTerminal*, execute ``07-save-slave-image-openstack`` folder.
+(17)	From *OpenStackTerminal*, keep executing ``07-save-slave-image-openstack/02-check-images.sh`` until you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
+(18)	From *MasterTerminal*, execute ``08-start-master`` folder.
+(19)	From *SlaveTerminal*, execute ``09-start-slaves`` folder.
+(20)	From *OpenStackTerminal*, execute ``10-forward-webUI-openstack`` folder. Please note If you see any iptables entry after you execute ``11-forward-webUI-openstack\01-check-ports.sh``, please edit '/etc/sysconfig/iptables' and remove those lines, then run ``11-forward-webUI-openstack\01-check-ports.sh`` again (the script will restart the iptables) ... DO NOT go to the next step before deleting those entries if there is any.
 
 Execute Hadoop Job From Eclipse Plugin
 --------------------------------------
