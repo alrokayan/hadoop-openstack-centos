@@ -24,7 +24,6 @@ then
 else
 	nova list
 	echo "";
-	echo "Please input one of the above slave VM name: ";
-	read image_name
+	read -p "Please input one of the above slave VM name: " image_name
 	nova delete $image_name
 fi
