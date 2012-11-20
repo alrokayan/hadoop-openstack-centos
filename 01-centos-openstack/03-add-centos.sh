@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Same current location
+current_location=`pwd`
+
 # Install wget
 yum install wget -y
 
@@ -32,4 +35,4 @@ rm -rf /tmp/images
 glance index
 
 # Go back
-cd ~/hadoop-openstack-centos/01-centos-openstack/
+cd $current_location

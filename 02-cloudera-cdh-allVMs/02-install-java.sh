@@ -14,14 +14,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Same current location
+current_location=`pwd`
+
+# Make new folder and go to it
 mkdir ~/install-java
 cd ~/install-java
 
+# download and install Java 1.6
 wget https://dl.dropbox.com/u/550719/PhD/jdk-6u37-linux-x64-rpm.bin
 chmod a+x jdk-6u37-linux-x64-rpm.bin
 ./jdk-6u37-linux-x64-rpm.bin
 
-cd ~/hadoop-openstack-centos/02-cloudera-cdh-allVMs/
+# Go back and delete the folder
+cd $current_location
 rm -rf ~/install-java
 
+# Show Java version
 java -version
