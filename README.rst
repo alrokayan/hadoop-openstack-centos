@@ -8,7 +8,7 @@ Project Information
 -	MapReduce version: MRv1
 -	Binaries source for CentOS: Cloudera CDH4
 -	Java version: Sun Java 1.6
--	OpenStack version: OpenStack Essex (2012.1)
+-	OpenStack version: OpenStack Folsom (2012.2)
 
 Installation Steps
 -------------------
@@ -414,7 +414,7 @@ Force booting VM on specific OpenStack host does not work, even with:
 	service openstack-nova-compute restart
 	service openstack-nova-scheduler restart
 	
-It is bug in OpenStack Essex:
+It is bug in OpenStack Essex (Solved in Folsom):
 - https://bugs.launchpad.net/ubuntu/+source/nova/+bug/1061665
 - https://review.openstack.org/#/c/15983/
 

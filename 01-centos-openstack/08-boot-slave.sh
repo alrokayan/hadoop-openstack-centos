@@ -21,11 +21,13 @@
 if [ $# -eq 3 ]; then
 	echo "Forcing the VM to boot on compute host: $3"
 	
-	echo "nova boot --image centos60 --flavor $1 --key_name centos_key --hint force_hosts=$3 $2"
+	echo "nova boot --image centos60 --flavor $1 --key_name centos_key --availability-zone nova:$3 $2"
 		
     # Create a VM instance from the CentOS image and inject the
 	# generated public key for password-less SSH connections
-	nova boot --image centos60 --flavor $1 --key_name centos_key --hint force_hosts=$3 $2
+	#nova boot --image centos60 --flavor $1 --key_name centos_key --hint force_hosts=$3 $2
+	nova boot --image centos60 --flavor $1 --key_name centos_key --availability-zone nova:$3 $2
+
 	
 	# show the VM
 	nova show $2
@@ -57,8 +59,10 @@ else
 			echo "nova boot --image centos60 --flavor $instance_type --key_name centos_key $VM_name"
 			nova boot --image centos60 --flavor $instance_type --key_name centos_key $VM_name
 		else
-			echo "nova boot --image centos60 --flavor $instance_type --key_name centos_key --hint force_hosts=$compute_host $VM_name"
-			nova boot --image centos60 --flavor $instance_type --key_name centos_key --hint force_hosts=$compute_host $VM_name
+			echo "nova boot --image centos60 --flavor $instance_type --key_name centos_key --availability-zone nova:$compute_host $VM_name"
+			#nova boot --image centos60 --flavor $instance_type --key_name centos_key --hint force_hosts=$compute_host $VM_name
+			nova boot --image centos60 --flavor $instance_type --key_name centos_key --availability-zone nova:$compute_host $VM_name
+
 		fi
 	fi
 fi
