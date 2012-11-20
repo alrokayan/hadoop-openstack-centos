@@ -14,8 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Export the variables defined in ~/hadoop-openstack-centos/config/configrc
-. ~/hadoop-openstack-centos/config/configrc
 
-# show VMs
-nova list
+# SSH into a VM instance using the generated test.pem key.
+
+if [ $# -eq 1 ]
+then
+	ssh -i centos_key.pem -l root $1
+else
+	# Export the variables defined in ~/hadoop-openstack-centos/config/configrc
+	. configrc
+
+	# show VMs
+	nova list
+    echo ''
+    read -p 'From the above VMs what is the IP address of the MASTER node? ' master_node
+    
+    ssh -i centos_key.pem -l root $master_node
+fi
+
+
