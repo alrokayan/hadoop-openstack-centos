@@ -38,5 +38,5 @@ sleep 1
 nova secgroup-add-rule default tcp 50060 50060 0.0.0.0/0
 
 # show all
-nova secgroup-list-rules myservers
+nova secgroup-list-rules default
 
