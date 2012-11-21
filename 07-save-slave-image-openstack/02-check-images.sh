@@ -17,4 +17,5 @@
 # Show images
 nova image-list
 
-echo "[[[[[VERY IMPORTANT]]]]] It may take long time for the image to be ACTIVE, just wait, do not go to the next step before it got ACTIVE"
+echo "[[[[[VERY IMPORTANT]]]]]
+It may take long time for hadoop-slave-image to be ACTIVE, just wait, do not go to the next step before it got ACTIVE"
