@@ -32,20 +32,18 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 
 ::
 
-	. ~/show-IPs.sh
-	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE MASTER FROM THE PERVIOUS COMMAND>
+	. ~/ssh-into-vm.sh
+
 (8)	From *SlaveTerminal* login to your slave node, by executing:
 
 ::
 
-	. ~/show-IPs.sh
-	. ~/ssh-into-vm.sh <IP ADDRESS FOR SLAVE FROM THE PERVIOUS COMMAND>
+	. ~/ssh-into-vm.sh
 (9)	From *ClientTerminal* login to your client node, by executing:
 
 ::
 
-	. ~/show-IPs.sh
-	. ~/ssh-into-vm.sh <IP ADDRESS FOR CLIENT FROM THE PERVIOUS COMMAND>
+	. ~/ssh-into-vm.sh
 (10)	From the three VM terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute: 
 
 ::
@@ -89,8 +87,7 @@ To use Eclipse plugin (which acts as another Hadoop client) and test your setup,
 
 ::
 
-	. ~/show-IPs.sh
-	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
+	. ~/ssh-into-vm.sh
 
 (9) After you login to the client VM, execute:
 
@@ -146,8 +143,7 @@ We will use Eclipse to develop the application then export it as Jar to be ready
 
 ::
 
-	. ~/show-IPs.sh
-	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
+	. ~/ssh-into-vm.sh
 
 (11) After you login to the client VM, execute:
 
@@ -269,13 +265,14 @@ You can verify if the slave node has been added by first check if the slave VM i
 
 ::
 
-	. ~/show-IPs.sh
+	. ~/configrc
+	nova list
 	
 If the new slave VM is ACTIVE, login to the client VM by executing this command:
 
 ::
 
-	. ~/ssh-into-vm.sh <IP ADDRESS FOR THE CLIENT>
+	. ~/ssh-into-vm.sh
 
 
 Check Master Node
@@ -402,21 +399,6 @@ Troubleshooting
 
 	sudo -u hdfs hadoop fs -chmod 1777 /tmp/hadoop-mapred/mapred
 
-
-KNOWN ISSUES
-------------
-
-Force booting VM on specific OpenStack host does not work, even with:
-
-::
-
-	openstack-config --set /etc/nova/nova.conf DEFAULT allow_admin_api true
-	service openstack-nova-compute restart
-	service openstack-nova-scheduler restart
-	
-It is bug in OpenStack Essex (Solved in Folsom):
-- https://bugs.launchpad.net/ubuntu/+source/nova/+bug/1061665
-- https://review.openstack.org/#/c/15983/
 
 References
 ----------
