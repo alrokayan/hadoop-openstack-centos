@@ -63,7 +63,7 @@ else
 		#echo ''
 		#read -p 'Please input the MASTER host name other than what is above (hadoop-master): ' VM_name
 		
-		VM_name = "hadoop-master"
+		VM_name="hadoop-master"
 		
 		if [ -z "$compute_host" ]; then
 			echo "nova boot --image centos60 --flavor $instance_type --key_name centos_key $VM_name"

@@ -60,7 +60,7 @@ else
 		#echo ''
 		#read -p 'Please input the CLIENT host name other than what is above (hadoop-client): ' VM_name
 		
-		VM_name = "hadoop-client"
+		VM_name="hadoop-client"
 		
 		if [ -z "$compute_host" ]; then
 			echo "nova boot --image centos60 --flavor $instance_type --key_name centos_key $VM_name"
