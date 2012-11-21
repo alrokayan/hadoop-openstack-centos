@@ -27,7 +27,7 @@ else
 	# show VMs
 	nova list
     echo ''
-    read -p 'From the above VMs what is the IP address of the MASTER node? ' master_node
+    read -p 'From the above VMs what is the IP address of the VM to ssh to? ' master_node
     
     ssh -i centos_key.pem -l root $master_node
 fi
