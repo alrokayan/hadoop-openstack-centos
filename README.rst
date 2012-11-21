@@ -258,6 +258,7 @@ You don not have to specify the ``compute_host``. If you passed only the first t
 
 However, you can just execute ``01-scale-out.sh`` and the script will ask you to input the arguments.
 
+In my setup, it takes about 4 minutes to add a new salve node to Hadoop (3.5 minutes to boot the VM + 0.5 minute to connect to the master node).
 
 Useful OpenStack Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
