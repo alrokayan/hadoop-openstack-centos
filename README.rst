@@ -338,7 +338,7 @@ Troubleshooting
 	
 	–copyFromLocal: Unknown command  
 
-*Error:*
+*or*
 
 ::
 	
@@ -389,6 +389,24 @@ Troubleshooting
 ::
 
 	sudo -u hdfs hadoop fs -chmod 1777 /tmp/hadoop-mapred/mapred
+	
+
+------------
+
+*Error:* Can't connect to: http://<OpenStack Controller IP/Hostname>:50030
+
+or
+
+::
+
+	ERROR security.UserGroupInformation: PriviledgedActionException as:root (auth:SIMPLE) cause:java.net.ConnectException: Call From hadoop-client.novalocal/10.0.0.4 to hadoop-master:8021 failed on connection exception: java.net.ConnectException: Connection refused; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+
+
+*Solution:* Login to the Master VM then run the JobTracker:
+
+::
+
+	service hadoop-0.20-mapreduce-jobtracker start
 
 
 References
