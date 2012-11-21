@@ -21,3 +21,8 @@ nova keypair-delete centos_key
 # into VMs to allow password-less SSH connections.
 nova keypair-add centos_key > ~/centos_key.pem
 chmod 600 ~/centos_key.pem
+
+echo "centos_key key added"
+
+# Show all key pairs
+nova keypair-list
