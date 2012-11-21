@@ -29,6 +29,7 @@ if [ $# -eq 3 ]; then
 	nova boot --image centos60 --flavor $1 --key_name centos_key --availability-zone nova:$3 $2
 	
 	# show the VM
+	echo ''
 	nova show $2
 	
 else
@@ -39,13 +40,17 @@ else
 		
 		
 		# show the VM
+		echo ''
 		nova show $2
 				
 	else
+		# Show compute hosts
+		echo ''
 		nova-manage instance_type list
 		echo ''
 		read -p 'Please input one of the above instance types name (example: m1.small): ' instance_type
-		
+		# Read compute hosts
+		echo ''
 		nova-manage service list
 		echo ''
 		echo 'You do not have to specify the compute host. If you kept it blank OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so it is a good idea to distribute disk I/O load between the hosts.'
@@ -59,10 +64,11 @@ else
 		
 		if [ -z "$compute_host" ]; then
 			echo "nova boot --image centos60 --flavor $instance_type --key_name centos_key $VM_name"
+			echo ''
 			nova boot --image centos60 --flavor $instance_type --key_name centos_key $VM_name
 		else
 			echo "nova boot --image centos60 --flavor $instance_type --key_name centos_key --availability-zone nova:$compute_host $VM_name"
-			#nova boot --image centos60 --flavor $instance_type --key_name centos_key --hint force_hosts=$compute_host $VM_name
+			echo ''
 			nova boot --image centos60 --flavor $instance_type --key_name centos_key --availability-zone nova:$compute_host $VM_name
 
 		fi

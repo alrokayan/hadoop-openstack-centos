@@ -30,6 +30,7 @@ if [ $# -eq 3 ]; then
 
 	
 	# show the VM
+	echo ''
 	nova show $2
 	
 else
@@ -39,20 +40,30 @@ else
 		nova boot --image hadoop-slave-image --flavor $1 --key_name centos_key $2
 		
 		# show the VM
+		echo ''
 		nova show $2
 				
 	else
+		# Show instance types (flavors)
+		echo ''
 		nova-manage instance_type list
 		echo ''
+		# Read instance types (flavors)
 		read -p 'Please input one of the above instance types name (example: m1.small): ' instance_type
 		
+		# Show compute hosts
+		echo ''
 		nova-manage service list
 		echo ''
+		# Read compute hosts
 		echo 'You do not have to specify the compute host. If you kept it blank OpenStack scheduler will do it automatically. OpenStack is not data-intensive (Disk I/O) aware, so it is a good idea to distribute disk I/O load between the hosts.'
 		read -p 'Please input one of the above compute host name to boot the slave on (optional): ' compute_host
 		
+		# Show all running VMs
+		echo ''
 		nova list
 		echo ''
+		# Read new VM name
 		read -p 'Please input a new slave host name other than what is above: ' VM_name
 		
 		if [ -z "$compute_host" ]; then
@@ -60,7 +71,7 @@ else
 			nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key $VM_name
 		else
 			echo "nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key --availability-zone nova:$compute_host $VM_name"
-			#nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key --hint force_hosts=$compute_host $VM_name
+			echo ''
 			nova boot --image hadoop-slave-image --flavor $instance_type --key_name centos_key --availability-zone nova:$compute_host $VM_name
 
 		fi
