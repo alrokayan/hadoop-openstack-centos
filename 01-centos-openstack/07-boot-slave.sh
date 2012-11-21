@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Export the variables defined in ../config/configrc
-. ../config/configrc
+# Export the variables defined in ../conf/configrc
+. ../conf/configrc
 
 
 if [ $# -eq 3 ]; then

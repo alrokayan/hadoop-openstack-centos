@@ -25,7 +25,7 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 	yum install -y git
 	git clone https://github.com/alrokayan/hadoop-openstack-centos.git
 	cd hadoop-openstack-centos
-(4)	From *OpenStackTerminal*, edit ``config\configrc`` file to match your OpenStack setup.
+(4)	From *OpenStackTerminal*, edit ``conf\configrc`` file to match your OpenStack setup.
 (5)	From *OpenStackTerminal*, execute ``01-centos-openstack`` folder.
 (6)	Open three new terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*) for the VMs and login to your controller form all the three terminals. Now you should have 4 terminals - all logged into OpenStack controller.
 (7)	From *MasterTerminal* login to your master node, by executing:
@@ -56,7 +56,7 @@ Steps to install Hadoop on OpenStack CentOS VMs:
 (12)	From *MasterTerminal*, execute ``03-install-master`` folder.
 (13)	From *SlaveTerminal*, execute ``04-install-slave`` folder.
 (14)	From *ClientTerminal*, execute ``05-install-client`` folder.
-(15)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``06-config-allVMs`` folder.
+(15)	From the three terminals (*MasterTerminal*, *SlaveTerminal*, and *ClientTerminal*), execute ``06-conf-allVMs`` folder.
 (16)	From *OpenStackTerminal*, execute ``07-save-slave-image-openstack`` folder.
 (17)	From *OpenStackTerminal*, keep executing ``07-save-slave-image-openstack/02-check-images.sh`` until you see the status of ``hadoop-slave-image`` is ACTIVE (it may take long time, just wait, do not go to the next step before it got ACTIVE).
 (18)	From *MasterTerminal*, execute ``08-start-master`` folder.
@@ -82,7 +82,7 @@ To use Eclipse plugin (which acts as another Hadoop client) and test your setup,
 (4)	Open Eclipse then choose: File -> New -> Project -> *MapReduce Project*.
 (5)	Put any project name, then click ``Configure Hadoop install directory…``, then click ``Browse...`` and select your uncompressed Hadoop Jars folder, example: /Users/alrokayan/hadoop-0.22.0, then click Apply -> OK -> Finish.
 (6)	Drag (or copy-and-past) the three .java files from ``Eclipse-Example`` folder (``WordCountDriver.java``, ``WordCountMap.java``, and ``WordCountReduce.java``) into the ``src`` folder (not the project it self) in Eclipse, then choose copy, then press OK.
-(7) From OpenStack controller, make sure that the ``config\configrc`` file has the correct values for your OpenStack setup.
+(7) From OpenStack controller, make sure that the ``conf\configrc`` file has the correct values for your OpenStack setup.
 (8)	From OpenStack controller, execute :
 
 ::
@@ -138,7 +138,7 @@ We will use Eclipse to develop the application then export it as Jar to be ready
 (6)	Drag (or copy-and-past) the three .java files from ``Eclipse-Example`` folder (``WordCountDriver.java``, ``WordCountMap.java``, and ``WordCountReduce.java``) into the ``src`` folder (not the project it self) in Eclipse, then choose copy, then press OK.
 (7) Right-click on the project name -> Export -> JAR file -> Next
 (8) Click the ``Browse`` button to specify the location of the exported Jar file. Put it anywhere where you can move it to the client VM. What I do is put it in the public folder of Dropbox so I can download it (wget it) from the client VM. Don not forget to add .jar at the end. Mine looks like this: /Users/alrokayan/Dropbox/Public/Hadoop_JARs/WordCount.jar. Ignore the warnings.
-(9) From OpenStack controller, make sure that the ``config\configrc`` file has the correct values for your OpenStack setup.
+(9) From OpenStack controller, make sure that the ``conf\configrc`` file has the correct values for your OpenStack setup.
 (10)	From OpenStack controller, execute :
 
 ::

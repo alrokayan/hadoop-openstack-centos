@@ -16,4 +16,4 @@
 
 # Copy files
 cp ../ssh-into-vm.sh ~/ssh-into-vm.sh
-cp ../config/configrc ~/configrc
+cp ../conf/configrc ~/configrc

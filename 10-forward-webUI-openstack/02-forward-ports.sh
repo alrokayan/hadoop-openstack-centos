@@ -21,8 +21,8 @@ then
 	iptables -t nat -A PREROUTING -p tcp --dport 50030 -j DNAT --to $1:50030
 
 else
-    # Export the variables defined in ../config/configrc
-	. ../config/configrc
+    # Export the variables defined in ../conf/configrc
+	. ../conf/configrc
 	
 	nova list
 	

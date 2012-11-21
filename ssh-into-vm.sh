@@ -21,7 +21,7 @@ if [ $# -eq 1 ]
 then
 	ssh -i centos_key.pem -l root $1
 else
-	# Export the variables defined in ~/hadoop-openstack-centos/config/configrc
+	# Export the variables
 	. configrc
 
 	# show VMs

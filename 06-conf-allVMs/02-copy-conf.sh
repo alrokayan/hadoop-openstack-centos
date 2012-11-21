@@ -19,6 +19,6 @@ rm -f /etc/hadoop/conf/core-site.xml
 rm -f /etc/hadoop/conf/hdfs-site.xml
 rm -f /etc/hadoop/conf/mapred-site.xml
 
-cp ../config/core-site.xml /etc/hadoop/conf/
-cp ../config/hdfs-site.xml /etc/hadoop/conf/
-cp ../config/mapred-site.xml /etc/hadoop/conf/
+cp ../conf/core-site.xml /etc/hadoop/conf/
+cp ../conf/hdfs-site.xml /etc/hadoop/conf/
+cp ../conf/mapred-site.xml /etc/hadoop/conf/
